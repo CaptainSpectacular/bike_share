@@ -8,7 +8,7 @@ class CreateConditions < ActiveRecord::Migration[5.1]
       t.decimal :average_humidity
       t.decimal :average_visibility
       t.decimal :average_windspeed
-      t.decimal :precipition
+      t.decimal :precipitation
     end
   end
 end
