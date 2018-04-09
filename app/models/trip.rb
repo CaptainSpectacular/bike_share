@@ -9,4 +9,6 @@ class Trip < ApplicationRecord
                         :bike_id,
                         :subscription_type,
                         :zip_code
+  has_many :station_trips
+  has_many :stations, through: :trips
 end

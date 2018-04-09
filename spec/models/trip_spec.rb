@@ -13,4 +13,8 @@ RSpec.describe Trip, type: :model do
     it{should validate_presence_of :zip_code}
     it{should validate_presence_of :subscription_type}
   end
+
+  describe 'relationships' do
+    it{should respond_to :stations}
+  end
 end
