@@ -6,7 +6,7 @@ describe 'user visits a stations show page' do
     station_2 = create(:station_2)
 
     visit station_path(station_1)
-
+    
     expect(current_path).to eq('/stations/broadway')
     expect(page).to have_content(station_1.name)
     expect(page).to have_content(station_1.dock_count)
