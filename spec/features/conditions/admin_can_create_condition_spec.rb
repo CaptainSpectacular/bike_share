@@ -4,7 +4,7 @@ describe 'an admin' do
   describe 'visits the new conditions path' do
     it 'can create new conditions' do
       admin = create(:admin)
-      allow_any_instance_of(Admin::BaseController).to receive(:current_user).and_return(admin)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
       visit new_admin_condition_path
 
       fill_in 'condition[date]', with: '2018-12-02'

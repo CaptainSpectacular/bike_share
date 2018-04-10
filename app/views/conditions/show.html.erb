@@ -24,3 +24,6 @@
 <p>
   Precipitation: <%= @condition.precipitation %> inches
 </p>
+
+  <%= link_to 'Delete', admin_condition_path(@condition), method: :delete, class: 'delete' if current_admin %>
+  <%= link_to 'Edit', edit_admin_condition_path(@condition) if current_admin %>

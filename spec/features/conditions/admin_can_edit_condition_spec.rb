@@ -5,7 +5,7 @@ describe 'an admin' do
     it 'can edit the condition' do
       admin = create(:admin)
       condition = create(:con1)
-      allow_any_instance_of(Admin::BaseController).to receive(:current_user).and_return(admin)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
       visit edit_admin_condition_path(condition)
 
       fill_in 'condition[date]', with: '2018-12-02'

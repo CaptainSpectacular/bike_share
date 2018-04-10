@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe 'visitor visits' do
+describe 'admin visits' do
   describe 'conditions index page' do
     it 'they see all conditions' do
-      guest = create(:user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(guest)
+      admin = create(:admin)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
       condition1 = create(:con1)
       condition2 = create(:con2)
 
@@ -20,6 +20,8 @@ describe 'visitor visits' do
 
       expect(page).to have_link(condition1.date)
       expect(page).to have_link(condition2.date)
+      expect(page).to have_link('Edit')
+      expect(page).to have_link('Delete')
     end
   end
 end
