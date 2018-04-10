@@ -1,12 +1,26 @@
 
 <h3>
-  <%= @condition.date %>
+  Date: <%= @condition.date %>
 </h3>
 
-<%= @condition.max_temp %>
-<%= @condition.average_temp %>
-<%= @condition.min_temp %>
-<%= @condition.average_humidity %>
-<%= @condition.average_visibility %>
-<%= @condition.average_windspeed %>
-<%= @condition.precipitation %>
+<p>
+  Max Temp: <%= @condition.max_temp %>
+</p>
+<p>
+  Mean Temp: <%= @condition.average_temp %>
+</p>
+<p>
+  Min Temp: <%= @condition.min_temp %>
+</p>
+<p>
+  Mean Humidity: <%= @condition.average_humidity %>
+</p>
+<p>
+  Mean Visibility: <%= @condition.average_visibility %> miles
+</p>
+<p>
+  Mean Wind Speed: <%= @condition.average_windspeed %> mph
+</p>
+<p>
+  Precipitation: <%= @condition.precipitation %> inches
+</p>

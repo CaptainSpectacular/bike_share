@@ -15,6 +15,9 @@ describe 'visitor visits' do
       condition2.attributes.each_value do |attr|
         expect(page).to have_content(attr)
       end
+
+      expect(page).to have_link(condition1.date)
+      expect(page).to have_link(condition2.date)
     end
   end
 end
