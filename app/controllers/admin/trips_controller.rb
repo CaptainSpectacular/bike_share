@@ -1,5 +1,5 @@
 module Admin
-  class StationsController < BaseController
+  class TripsController < BaseController
     def new
     end
 
