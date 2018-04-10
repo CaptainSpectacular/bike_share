@@ -9,6 +9,10 @@ describe 'As an admin' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
       visit trip_path(trip)
 
+      trip.attributes.each_value do |attr|
+       expect(page).to have_content(attr)
+      end
+
       expect(page).to have_link('Edit')
       expect(page).to have_link('Delete')
     end

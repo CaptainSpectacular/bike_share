@@ -8,14 +8,9 @@ describe 'Trip show' do
 
       visit trip_path(trip)
 
-      expect(page).to have_content(trip.duration)
-      expect(page).to have_content(trip.start_date)
-      expect(page).to have_content(trip.start_station_name)
-      expect(page).to have_content(trip.end_date)
-      expect(page).to have_content(trip.end_station_name)
-      expect(page).to have_content(trip.bike_id)
-      expect(page).to have_content(trip.subscription_type)
-      expect(page).to have_content(trip.zip_code)
+      trip.attributes.each_value do |attr|
+       expect(page).to have_content(attr)
+      end
       expect(page).to_not have_content(trip2.duration)
     end
   end
