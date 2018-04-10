@@ -9,5 +9,8 @@ describe 'user visits an accessory show page' do
     expect(page).to have_content(accessory.title)
     expect(page).to have_content(accessory.price)
     expect(page).to have_content(accessory.image)
+
+    click_on "Add to Cart"
+    expect(current_path).to eq('/cart')
   end
 end

@@ -13,6 +13,6 @@ class CartController < ApplicationController
     @cart.add_accessory(accessory)
     session[:cart] = @cart.contents
     flash[:notice] = "You now have #{pluralize(@cart.accessory_count(accessory.id.to_s), accessory.title)} in your cart."
-    redirect_to '/bike-shop'
+    redirect_to '/cart'
   end
 end
