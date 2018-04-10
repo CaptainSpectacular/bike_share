@@ -1,0 +1,10 @@
+<% @stations.each do |station| %>
+  <%= station.name %>
+  <%= station.dock_count %>
+  <%= station.city %>
+  <%= station.installation_date %>
+  <% if current_admin %>
+    <%= link_to "Edit", edit_station_path(station) %>
+    <%= link_to "Delete", station_path(station), method: "delete", data: {confirm: "Are you sure you want to delete this idea?"} %>
+  <% end %>
+<% end %>
