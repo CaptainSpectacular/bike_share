@@ -9,9 +9,10 @@
   </head>
 
   <body>
-  <% flash.each do |message_type, message| %>
-    <div><%= message_type %>"><%= message %></div>
-  <% end %>
+    <p> Cart: <%= @cart.total_accessory_count %></p>
+    <% flash.each do |message_type, message| %>
+      <div><%= message_type %>"><%= message %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

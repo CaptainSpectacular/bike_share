@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   get '/dashboard', to: 'user#show'
+  get '/bike-shop', to: 'bike_shop#index'
+  post '/cart', to: 'cart#create'
 
   namespace :admin do
     resources :conditions, exclude: [:index, :show]
