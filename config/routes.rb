@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'user#show'
 
   resources :stations
+  namespace :admin do
+    resources :stations
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
