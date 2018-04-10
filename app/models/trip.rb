@@ -11,4 +11,6 @@ class Trip < ApplicationRecord
                         :zip_code
   has_many :station_trips
   has_many :stations, through: :trips
+
+  self.per_page = 30
 end

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :trip do
-    duration 1
+    sequence(:duration) {|n| 1 + n }
     start_date "MyString"
     start_station_name "MyString"
     start_station_id 1
