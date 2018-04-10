@@ -5,3 +5,4 @@
   Quantity: <%= @cart.accessory_count(accessory.id.to_s) %>
   Subtotal: <%= @cart.accessory_count(accessory.id.to_s) * accessory.price %>
 <% end %>
+Cart Total: <%= @cart.total %>

@@ -16,4 +16,11 @@ class Cart
   def accessory_count(id)
     @contents[id]
   end
+
+  def total
+    @contents.map do |accessory_id, count|
+      Accessory.find(accessory_id).price.to_f * count
+    end.sum
+  end
+
 end
