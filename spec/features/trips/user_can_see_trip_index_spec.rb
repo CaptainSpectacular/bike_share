@@ -12,10 +12,8 @@ describe 'Trip Index' do
 
       expect(page).to have_content(trip1.duration)
       expect(page).to have_content(trip1.start_date)
-      expect(page).to have_content(trip1.start_station_id)
       expect(page).to have_content(trip1.start_station_name)
       expect(page).to have_content(trip1.end_date)
-      expect(page).to have_content(trip1.end_station_id)
       expect(page).to have_content(trip1.end_station_name)
       expect(page).to have_content(trip1.bike_id)
       expect(page).to have_content(trip1.subscription_type)
