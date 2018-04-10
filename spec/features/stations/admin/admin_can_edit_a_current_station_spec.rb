@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'admin visits a new station page' do
-  scenario 'they can edit a new station' do
+  scenario 'they can edit a station' do
     admin = create(:admin)
     station_1 = create(:station_1)
     station_2 = create(:station_2)
