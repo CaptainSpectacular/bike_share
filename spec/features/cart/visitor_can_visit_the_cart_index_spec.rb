@@ -7,11 +7,14 @@ describe 'as a visitor' do
     visit '/bike-shop'
 
     click_on 'Add to Cart'
-
+    
     visit '/cart'
 
     expect(page).to have_content(accessory_1.title)
     expect(page).to have_content(accessory_1.price)
     expect(page).to have_content(accessory_1.image)
+
+    expect(page).to have_content("Quantity: 1")
+    expect(page).to have_content("Subtotal: 9.99")
   end
 end
