@@ -15,7 +15,7 @@ describe 'Trip show' do
       expect(page).to have_content(trip.end_station_name)
       expect(page).to have_content(trip.bike_id)
       expect(page).to have_content(trip.subscription_type)
-      expect(page).to have_content(trip.zipcode)
+      expect(page).to have_content(trip.zip_code)
       expect(page).to_not have_content(trip2.duration)
     end
   end
