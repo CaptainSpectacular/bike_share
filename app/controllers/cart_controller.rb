@@ -1,6 +1,12 @@
 class CartController < ApplicationController
   include ActionView::Helpers::TextHelper
 
+  def index
+    @accessories = @cart.contents.map do |accessory_id, count|
+      Accessory.find(accessory_id.to_i)
+    end
+  end
+
   def create
     accessory = Accessory.find(params[:accessory_id])
     @cart = Cart.new(session[:cart])
