@@ -21,7 +21,7 @@ end
 
 describe 'As a regular user' do
   describe 'when I visit the trip show page' do
-    it 'I can not see an edit or delete button' do
+    skip 'I can not see an edit or delete button' do
       user = create(:user)
       trip = create(:trip)
 
