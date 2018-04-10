@@ -29,6 +29,13 @@ module Admin
       end
     end
 
+    def destroy
+      station = Station.friendly.find(params[:id])
+      station.destroy
+      flash[:notice] = "#{station.name} was deleted!"
+      redirect_to stations_path
+    end
+
     private
     def station_params
       params.require(:station).permit(:name, :dock_count, :city, :installation_date)
