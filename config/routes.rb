@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'welcome#index'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -14,5 +15,4 @@ Rails.application.routes.draw do
   resources :stations
   resources :trips, only: [:index, :show]
   resources :conditions, only: %i[index show]
-
 end
