@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :station_1, class: Station do
-    name "MyString"
+    name "Broadway"
     dock_count 1
     city "MyString"
-    installation_date "2018-04-09"
+    installation_date "3018-04-09"
   end
   factory :station_2, class: Station do
     name "Station2"
