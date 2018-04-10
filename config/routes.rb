@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'user#show'
 
   namespace :admin do
-    resources :conditions, exclude: %i[index show]
+    resources :conditions, exclude: [:index, :show]
     resources :stations
     resources :trips, only: [:new, :edit, :update, :destroy]
   end
