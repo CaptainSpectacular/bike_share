@@ -5,13 +5,14 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'user#show'
 
-  resources :stations
   namespace :admin do
+    resources :conditions, exclude: %i[index show]
     resources :stations
     resources :trips, only: [:new, :edit, :update, :destroy]
   end
-
+  
+  resources :stations
   resources :trips, only: [:index, :show]
+  resources :conditions, only: %i[index show]
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

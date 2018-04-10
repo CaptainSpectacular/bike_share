@@ -1,0 +1,15 @@
+
+<%= @conditions.each do |condition| %>
+  <h3>
+    <%= condition.date %>
+  </h3>
+
+  <%= condition.max_temp %>
+  <%= condition.average_temp %>
+  <%= condition.min_temp %>
+  <%= condition.average_humidity %>
+  <%= condition.average_visibility %>
+  <%= condition.average_windspeed %>
+  <%= condition.precipitation %>
+
+<% end %>
