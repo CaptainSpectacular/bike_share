@@ -1,6 +1,6 @@
 <% @accessories.each do |accessory| %>
 <div class="accessory-<%= accessory.id %>">
-  <%= accessory.title %>
+  <%= link_to accessory.title, accessory_path(accessory)  %>
   <%= accessory.price %>
   <%= accessory.image %>
   <%= button_to "Add to Cart", cart_path(accessory_id: accessory.id) %>
