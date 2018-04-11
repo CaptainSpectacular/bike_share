@@ -7,4 +7,15 @@ class Condition < ApplicationRecord
                         :average_visibility,
                         :average_windspeed,
                         :precipitation
+  has_many :trips
+
+  def self.avg_trips_with_condition(temp_range)
+    trips = joins(:trips)
+            .where(max_temp: temp_range)
+            .group(:condition_id)
+            .count(:condition_id)
+            .values
+
+    (trips.sum.to_f / trips.size).round(2)
+  end
 end

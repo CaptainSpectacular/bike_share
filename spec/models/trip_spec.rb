@@ -15,5 +15,6 @@ RSpec.describe Trip, type: :model do
 
   describe 'relationships' do
     it{should respond_to :stations}
+    it{is_expected.to belong_to(:condition)}
   end
 end
