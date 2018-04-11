@@ -72,7 +72,6 @@ RSpec.describe Condition, type: :model do
       trip_3      = create(:trip, condition: condition_3)
       trip_4      = create(:trip, condition: condition_3)
       trip_5      = create(:trip, condition: condition_5)
-
       expected = [[1, 3, 2],
                   [1, 1, 1]]
 
