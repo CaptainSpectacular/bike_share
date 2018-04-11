@@ -3,12 +3,12 @@ FactoryBot.define do
     name "Broadway"
     dock_count 1
     city "MyString"
-    installation_date "3018-04-09"
+    installation_date Time.now
   end
   factory :station_2, class: Station do
     name "Station2"
-    dock_count 2
+    dock_count 3
     city "Denver"
-    installation_date "2018-05-09"
+    installation_date Time.now + 10000000
   end
 end
