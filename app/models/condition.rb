@@ -39,4 +39,20 @@ class Condition < ApplicationRecord
       avg.nan? ? 0 : avg
     end
   end
+
+  def self.max_trip_in_conditions
+    ranges.map do |range|
+      trips = trips_with_condition(range)
+
+      trips.max.nil? ? 0 : trips.max
+    end
+  end
+
+  def self.min_trip_in_conditions
+    ranges.map do |range|
+      trips = trips_with_condition(range)
+
+      trips.min.nil? ? 0 : trips.min
+    end
+  end
 end
