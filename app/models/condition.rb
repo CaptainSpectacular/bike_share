@@ -9,7 +9,7 @@ class Condition < ApplicationRecord
                         :precipitation
   has_many :trips
 
-  def self.ranges
+  def self.temp_ranges
     [0..9,
      10..19,
      20..29,
@@ -31,28 +31,13 @@ class Condition < ApplicationRecord
       .values
   end
 
-  def self.average_trips_in_conditions
-    ranges.map do |range|
+  def self.trips_temp_breakdown
+    temp_ranges.map do |range|
       trips = trips_with_condition(range)
 
       avg = (trips.sum.to_f / trips.size).round(2)
-      avg.nan? ? 0 : avg
+      avg.nan? ? [0, 0, 0] : [trips.min, trips.max, avg]
     end
   end
 
-  def self.max_trip_in_conditions
-    ranges.map do |range|
-      trips = trips_with_condition(range)
-
-      trips.max.nil? ? 0 : trips.max
-    end
-  end
-
-  def self.min_trip_in_conditions
-    ranges.map do |range|
-      trips = trips_with_condition(range)
-
-      trips.min.nil? ? 0 : trips.min
-    end
-  end
 end
