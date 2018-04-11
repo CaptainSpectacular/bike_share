@@ -1,0 +1,28 @@
+
+<%= form_for [:admin, @trip] do |f| %>
+  <%= f.label :duration %>
+  <%= f.number_field :duration %>
+
+  <%= f.label :start_station_name %>
+  <%= f.collection_select(:start_station_id, @stations, :id, :name) %>
+
+  <%= f.label :start_date %>
+  <%= f.text_field :start_date %>
+
+  <%= f.label :end_station_name %>
+  <%= f.collection_select(:end_station_id, @stations, :id, :name) %>
+
+  <%= f.label :end_date %>
+  <%= f.text_field :end_date %>
+
+  <%= f.label :bike_id %>
+  <%= f.number_field :bike_id %>
+
+  <%= f.label :subscription_type %>
+  <%= f.select :subscription_type, options_for_select(["Subscriber", "Customer"]) %>
+
+  <%= f.label :zip_code %>
+  <%= f.text_field :zip_code %>
+
+  <%= f.submit %>
+<% end %>

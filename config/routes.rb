@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :conditions, exclude: [:index, :show]
     resources :stations
-    resources :trips, only: [:new, :edit, :update, :destroy]
+    resources :trips
   end
 
   resources :stations
