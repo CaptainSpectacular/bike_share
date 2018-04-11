@@ -11,7 +11,7 @@ describe 'As an admin' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
         visit edit_admin_trip_path(trip)
-        
+
         fill_in 'trip[duration]', with: 3
         fill_in 'trip[start_date]', with: '12/16/2018'
         select station2.name, from: 'trip[start_station_id]'
@@ -23,14 +23,15 @@ describe 'As an admin' do
         click_on 'Update Trip'
 
         expect(current_path).to eq(trip_path(trip))
-        expect(page).to have_content(trip.duration)
-        expect(page).to have_content(trip.start_date)
-        expect(page).to have_content(trip.start_station_name)
-        expect(page).to have_content(trip.end_date)
-        expect(page).to have_content(trip.end_station_name)
-        expect(page).to have_content(trip.bike_id)
-        expect(page).to have_content(trip.subscription_type)
-        expect(page).to have_content(trip.zip_code)
+        expect(page).to have_content('Your trip from 12/16/2018 was updated!')
+        expect(page).to have_content('3')
+        expect(page).to have_content('12/16/2018')
+        expect(page).to have_content('Louisiana-Pearl')
+        expect(page).to have_content('12/16/2018')
+        expect(page).to have_content('Louisiana-Pearl')
+        expect(page).to have_content('2')
+        expect(page).to have_content('Customer')
+        expect(page).to have_content('80218')
       end
     end
   end
