@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <p> Cart: <%= @cart.total_accessory_count %></p>
+    <%= render 'partials/navigation' %>
     <% flash.each do |message_type, message| %>
       <div><%= message_type %>"><%= message %></div>
     <% end %>
