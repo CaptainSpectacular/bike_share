@@ -23,7 +23,12 @@ class Condition < ApplicationRecord
      100..120]
   end
 
-  def self.trips_with_condition(range)
+  def self.pre_ranges
+    [0..0.5,
+     0.5..1]
+  end
+
+  def self.trips_with_temp(range)
     joins(:trips)
       .where(max_temp: range)
       .group(:condition_id)
@@ -31,13 +36,41 @@ class Condition < ApplicationRecord
       .values
   end
 
+  def self.trips_with_pre(range)
+    joins(:trips)
+    .where(precipitation: range)
+    .group(:condition_id)
+    .count(:condition_id)
+    .values
+  end
+
   def self.trips_temp_breakdown
     temp_ranges.map do |range|
-      trips = trips_with_condition(range)
+      trips = trips_with_temp(range)
+      avg = calc_avg(trips)
 
-      avg = (trips.sum.to_f / trips.size).round(2)
-      avg.nan? ? [0, 0, 0] : [trips.min, trips.max, avg]
+      return_values(avg, trips)
     end
+  end
+
+  def self.trips_precipitation_breakdown
+    pre_ranges.map do |range|
+      trips = trips_with_pre(range)
+      avg = calc_avg(trips)
+
+      return_values(avg, trips)
+    end
+  end
+
+
+  private 
+
+  def self.calc_avg(trips)
+    (trips.sum.to_f) / (trips.size).round(2)
+  end
+
+  def self.return_values(avg, trips)
+    avg.nan? ? [0, 0, 0] : [trips.min, trips.max, avg]
   end
 
 end
