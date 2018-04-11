@@ -5,7 +5,7 @@ describe 'As an admin' do
     it 'I can delete a trip' do
       admin = create(:admin)
       trip1 = create(:trip_999)
-      trip1 = create(:trip_1000)
+      trip2 = create(:trip_1000)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit trips_path
