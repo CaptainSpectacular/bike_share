@@ -7,8 +7,7 @@ class Trip < ApplicationRecord
                         :end_station_name,
                         :end_station_id,
                         :bike_id,
-                        :subscription_type,
-                        :zip_code
+                        :subscription_type
   has_many :station_trips
   has_many :stations, through: :trips
 
