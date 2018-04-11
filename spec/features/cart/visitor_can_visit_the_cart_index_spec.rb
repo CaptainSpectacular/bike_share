@@ -18,4 +18,5 @@ describe 'as a visitor' do
     expect(page).to have_content("Subtotal: 9.99")
     expect(page).to have_content("Cart Total: 9.99")
   end
+
 end

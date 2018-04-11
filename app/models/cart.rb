@@ -21,6 +21,10 @@ class Cart
     @contents[id]
   end
 
+  def delete_accessory(accessory)
+    @contents.delete(accessory.id.to_s)
+  end
+
   def total
     @contents.map do |accessory_id, count|
       Accessory.find(accessory_id).price.to_f * count
