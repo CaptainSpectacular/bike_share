@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   resources :stations
   resources :users
   resources :trips, only: [:index, :show]
-  resources :conditions, only: %i[index show]
+  resources :conditions, only: [:index, :show]
   resources :accessory, only: [:show]
 end

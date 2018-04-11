@@ -25,6 +25,23 @@ class Condition < ApplicationRecord
     .values
   end
 
+  def self.trips_with_wind(range)
+    joins(:trips)
+      .where(average_windspeed: range)
+      .group(:condition_id)
+      .count(:condition_id)
+      .values  
+  end
+
+
+  def self.trips_with_visibility(range)
+    joins(:trips)
+      .where(average_visibility: range)
+      .group(:condition_id)
+      .count(:condition_id)
+      .values  
+  end
+
   def self.trips_temp_breakdown
     temp_ranges.map do |range|
       trips = trips_with_temp(range)
@@ -43,6 +60,24 @@ class Condition < ApplicationRecord
     end
   end
 
+  def self.trips_visibility_breakdown
+    visible_ranges.map do |range|
+      trips = trips_with_visibility(range)
+      avg = calc_avg(trips)
+
+      return_values(avg, trips)
+    end
+  end
+
+  def self.trips_windspeed_breakdown
+    wind_ranges.map do |range|
+      trips = trips_with_wind(range)
+      avg = calc_avg(trips)
+
+      return_values(avg, trips)
+    end
+  end
+
   private 
 
   def self.calc_avg(trips)
@@ -54,32 +89,40 @@ class Condition < ApplicationRecord
   end
 
   def self.temp_ranges
-    [0..9,
-     10..19,
-     20..29,
-     30..39,
-     40..49,
+    [40..49,
      50..59,
      60..69,
      70..79,
      80..89,
      90..99,
-     100..120]
-
-    # Maybe make it more dynamic later?
-    # ((minimum(:max_temp).floor(-1)).to_i..(maximum(:max_temp).ceil(-1).to_i)).step(10)
-
+     100..110]
   end
 
   def self.pre_ranges
     [0..0.5,
-     0.5..1]
+     0.5..0.99,
+     1..1.49,
+     1.5..1.99,
+     2..2.49,
+     2.5..2.99,
+     3..2.49]
   end
 
   def self.wind_ranges
-    [0..4,
-     5..9,
-     10..14]
+    [0..3,
+     4..7,
+     7..11,
+     12..15,
+     16..19,
+     20..23]
+  end
+
+  def self.visible_ranges
+    [4..7,
+    8..11,
+    12..15,
+    16..19,
+    20..23]
   end
 
 end

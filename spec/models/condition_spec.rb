@@ -39,7 +39,7 @@ RSpec.describe Condition, type: :model do
       condition_2 = create(:con1, max_temp: 55)
       condition_3 = create(:con1, max_temp: 53)
       condition_4 = create(:con1, max_temp: 69)
-      condition_5 = create(:con1, max_temp: 20)
+      condition_5 = create(:con1, max_temp: 90)
       trip_1      = create(:trip, condition: condition_2)
       trip_2      = create(:trip, condition: condition_3)
       trip_3      = create(:trip, condition: condition_3)
@@ -47,15 +47,11 @@ RSpec.describe Condition, type: :model do
       trip_5      = create(:trip, condition: condition_5)
 
       expected = [[0, 0, 0],
-                  [0, 0, 0],
-                  [1, 1, 1.0],
-                  [0, 0, 0],
-                  [0, 0, 0],
                   [1, 3, 2.0],
                   [0, 0, 0],
                   [0, 0, 0],
                   [0, 0, 0],
-                  [0, 0, 0],
+                  [1, 1, 1],
                   [0, 0, 0]]
 
       expect(Condition.trips_temp_breakdown).to eq(expected)
@@ -73,9 +69,57 @@ RSpec.describe Condition, type: :model do
       trip_4      = create(:trip, condition: condition_3)
       trip_5      = create(:trip, condition: condition_5)
       expected = [[1, 3, 2],
-                  [1, 1, 1]]
+                  [1, 1, 1],
+                  [0, 0, 0],
+                  [0, 0, 0],
+                  [0, 0, 0],
+                  [0, 0, 0],
+                  [0, 0, 0]]
 
       expect(Condition.trips_precipitation_breakdown).to eq(expected)
+    end
+
+    it '.trips_windspeed_breakdown' do
+      condition_1 = create(:con1, average_windspeed: 0)
+      condition_2 = create(:con1, average_windspeed: 2)
+      condition_3 = create(:con1, average_windspeed: 12)
+      condition_4 = create(:con1, average_windspeed: 13)
+      condition_5 = create(:con1, average_windspeed: 1)
+      trip_1      = create(:trip, condition: condition_2)
+      trip_2      = create(:trip, condition: condition_3)
+      trip_3      = create(:trip, condition: condition_3)
+      trip_4      = create(:trip, condition: condition_4)
+      trip_5      = create(:trip, condition: condition_5)
+                  
+      expected = [[1, 1, 1.0],
+                  [0, 0, 0], 
+                  [0, 0, 0], 
+                  [1, 2, 1.5], 
+                  [0, 0, 0], 
+                  [0, 0, 0]]
+
+      expect(Condition.trips_windspeed_breakdown).to eq(expected)
+    end
+
+    it '.trips_visibility_breakdown' do
+      condition_1 = create(:con1, average_visibility: 20)
+      condition_2 = create(:con1, average_visibility: 20)
+      condition_3 = create(:con1, average_visibility: 12)
+      condition_4 = create(:con1, average_visibility: 13)
+      condition_5 = create(:con1, average_visibility: 20)
+      trip_1      = create(:trip, condition: condition_2)
+      trip_2      = create(:trip, condition: condition_3)
+      trip_3      = create(:trip, condition: condition_3)
+      trip_4      = create(:trip, condition: condition_4)
+      trip_5      = create(:trip, condition: condition_5)
+      
+      expected = [[0, 0, 0],
+                  [0, 0, 0],
+                  [1, 2, 1.5],
+                  [0, 0, 0],
+                  [1, 1, 1]]
+
+      expect(Condition.trips_visibility_breakdown).to eq(expected)
     end
   end
 end
