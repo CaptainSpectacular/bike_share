@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
 
+  get '/conditions-dashboard', to: 'conditions/dashboard#index'
   get '/dashboard', to: 'users#show'
   get '/bike-shop', to: 'bike_shop#index'
   post '/cart', to: 'cart#create'

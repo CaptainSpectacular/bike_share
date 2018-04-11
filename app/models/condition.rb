@@ -9,7 +9,7 @@ class Condition < ApplicationRecord
                         :precipitation
   has_many :trips
 
-  def self.avg_trips_with_condition(temp_range)
+  def self.avg_trips_with_condition(temp_range = (50..60))
     trips = joins(:trips)
             .where(max_temp: temp_range)
             .group(:condition_id)
