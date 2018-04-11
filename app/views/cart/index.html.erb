@@ -1,0 +1,9 @@
+<% @accessories.each do |accessory| %>
+  <%= accessory.title %>
+  <%= accessory.price %>
+  <%= accessory.image %>
+  Quantity: <%= @cart.accessory_count(accessory.id.to_s) %>
+  Subtotal: <%= @cart.accessory_count(accessory.id.to_s) * accessory.price %>
+  <%= button_to "Add 1", cart_path(accessory_id: accessory.id) %>
+<% end %>
+Cart Total: <%= @cart.total %>
