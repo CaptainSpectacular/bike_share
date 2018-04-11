@@ -22,7 +22,7 @@
     <td><%= @trip.zip_code %></td>
     <% if current_admin %>
       <td><%= link_to "Edit", edit_admin_trip_path(@trip)  %></td>
-      <td><%= link_to "Delete", trip_path(@trip), method: :delete  %></td>
+      <td><%= link_to "Delete", admin_trip_path(@trip), method: :delete  %></td>
     <% end %>
   </tr>
 </table>
