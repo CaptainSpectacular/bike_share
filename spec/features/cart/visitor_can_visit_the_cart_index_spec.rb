@@ -18,14 +18,4 @@ describe 'as a visitor' do
     expect(page).to have_content("Subtotal: 9.99")
     expect(page).to have_content("Cart Total: 9.99")
   end
-  # scenario 'visits cart, adds item, and logs in' do
-  #   accessory_1 = create(:accessory)
-  #
-  #   visit '/bike-shop'
-  #
-  #   click_on 'Add to Cart'
-  #
-  #   visit '/'
-  #
-  # end
 end

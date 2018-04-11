@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
 
-  get '/dashboard', to: 'user#show'
+  get '/dashboard', to: 'users#show'
   get '/bike-shop', to: 'bike_shop#index'
   post '/cart', to: 'cart#create'
   get '/cart', to: 'cart#index'
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :stations
+  resources :users
   resources :trips, only: [:index, :show]
   resources :conditions, only: %i[index show]
   resources :accessory, only: [:show]
