@@ -12,6 +12,18 @@ describe "user adds an accessory to cart" do
       expect(page).to have_content("You now have 1 #{accessory.title} in your cart.")
       visit stations_path
       expect(page).to have_content("Cart: 1")
+
+      visit root_path
+      click_on "Create Account"
+
+      fill_in "user[username]", with: "Batman"
+      fill_in "user[password]", with: "Robin"
+      click_on "Sign Up"
+
+      visit '/cart'
+
+      expect(page).to have_content("Cart: 1")
+      expect(page).to have_content("Quantity: 1")
     end
     it "can click_button to add 1 to quantity" do
       accessory = create(:accessory)
