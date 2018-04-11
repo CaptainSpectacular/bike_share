@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/bike-shop', to: 'bike_shop#index'
   post '/cart', to: 'cart#create'
   get '/cart', to: 'cart#index'
+  delete '/cart', to: 'cart#destroy'
 
   namespace :admin do
     resources :conditions, exclude: [:index, :show]
