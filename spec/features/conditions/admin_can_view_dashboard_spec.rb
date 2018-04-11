@@ -16,9 +16,7 @@ describe 'as an admin' do
 
       visit conditions_dashboard_path
 
-      expect(page).to have_content(Condition.avg_trips_with_condition(50..60))
-      # expect(page).to have_content(Condition.avg_trips_with_condition(20..30))
-      # expect(page).to have_content(Condition.avg_trips_with_condition(60..70))
+      expect(page).to have_content(Condition.average_trips_in_conditions)
     end
   end
 end

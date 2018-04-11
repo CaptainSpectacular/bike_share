@@ -17,7 +17,7 @@ RSpec.describe Condition, type: :model do
   end
 
   describe 'class methods' do
-    it '.avg_trips_with_condition' do
+    it '.average_trips_with_condition' do
       condition_1 = create(:con1, max_temp: 50)
       condition_2 = create(:con1, max_temp: 55)
       condition_3 = create(:con1, max_temp: 53)
@@ -29,9 +29,26 @@ RSpec.describe Condition, type: :model do
       trip_4      = create(:trip, condition: condition_3)
       trip_5      = create(:trip, condition: condition_5)
 
-      expect(Condition.avg_trips_with_condition(50..60)).to eq(2)
-      expect(Condition.avg_trips_with_condition(20..30)).to eq(1)
-      expect(Condition.avg_trips_with_condition(20..70)).to eq(1.67)
+      expect(Condition.trips_with_condition(50..60).sum).to eq(4)
+      expect(Condition.trips_with_condition(20..30).sum).to eq(1)
+      expect(Condition.trips_with_condition(20..70).sum).to eq(5)
+    end
+
+    it '.average_trips_with_condition' do
+      condition_1 = create(:con1, max_temp: 50)
+      condition_2 = create(:con1, max_temp: 55)
+      condition_3 = create(:con1, max_temp: 53)
+      condition_4 = create(:con1, max_temp: 69)
+      condition_5 = create(:con1, max_temp: 20)
+      trip_1      = create(:trip, condition: condition_2)
+      trip_2      = create(:trip, condition: condition_3)
+      trip_3      = create(:trip, condition: condition_3)
+      trip_4      = create(:trip, condition: condition_3)
+      trip_5      = create(:trip, condition: condition_5)
+
+      expected = [0, 0, 1.0, 0, 0, 2.0, 0, 0, 0, 0, 0]
+
+      expect(Condition.average_trips_in_conditions).to eq(expected)
     end
   end
 end
