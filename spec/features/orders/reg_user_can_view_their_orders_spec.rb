@@ -23,7 +23,7 @@ describe 'As a registered user' do
       expect(page).to have_content(order.total)
       expect(page).to have_content(order.status)
       expect(page).to have_content(order.date_time)
-      expect(page).to have_content(order.items)
+      expect(page).to have_content(order.accessories.first.title)
       expect(page).to have_content(order.items.first.subtotal)
       expect(page).to have_content(order.items.first.quantity)
     end
