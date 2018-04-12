@@ -225,3 +225,31 @@ ul {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+
+.station-background {
+  background-image: url(https://images.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Ff%2Ffb%2FCitybike_station_bikeMi_Milan_Italy_20101230.JPG&f=1);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.station-display {
+  display: flex;
+  justify-content: center;
+}
+
+.trip-background {
+  background-image: url(http://cdn.mntm.me/66/5c/73/Tip-Sheet-Road-Trips-665c733326544377a6335e75b5030d5c.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.trip-display {
+  display: flex;
+  justify-content: center;
+
+  th, td  {
+    padding: 5px;
+    }
+}

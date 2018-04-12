@@ -1,29 +1,30 @@
+<html class="condition-background">
+<h3 class="centered-text"> Welcome to <%= @condition.date %>'s Information </h3>
+<table class="trip-display">
+  <tr>
+    <th>Date</th>
+    <th>Max Temp</th>
+    <th>Mean Temp</th>
+    <th>Min Temp</th>
+    <th>Mean Humidity</th>
+    <th>Mean Visibility</th>
+    <th>Mean Wind Speed</th>
+    <th>Precipiation</th>
+  </tr>
 
-<h3>
-  Date: <%= @condition.date %>
-</h3>
-
-<p>
-  Max Temp: <%= @condition.max_temp %>
-</p>
-<p>
-  Mean Temp: <%= @condition.average_temp %>
-</p>
-<p>
-  Min Temp: <%= @condition.min_temp %>
-</p>
-<p>
-  Mean Humidity: <%= @condition.average_humidity %>
-</p>
-<p>
-  Mean Visibility: <%= @condition.average_visibility %> miles
-</p>
-<p>
-  Mean Wind Speed: <%= @condition.average_windspeed %> mph
-</p>
-<p>
-  Precipitation: <%= @condition.precipitation %> inches
-</p>
-
-  <%= link_to 'Delete', admin_condition_path(@condition), method: :delete, class: 'delete' if current_admin %>
-  <%= link_to 'Edit', edit_admin_condition_path(@condition) if current_admin %>
+  <tr>
+    <td><%= @condition.date %></td>
+    <td><%= @condition.max_temp %></td>
+    <td><%= @condition.average_temp %></td>
+    <td><%= @condition.min_temp %></td>
+    <td><%= @condition.average_humidity %></td>
+    <td><%= @condition.average_visibility %> (Miles)</td>
+    <td><%= @condition.average_windspeed %> (MPH)</td>
+    <td><%= @condition.precipitation %> (Inches)</td>
+    <% if current_admin %>
+      <td><%= link_to 'Delete', admin_condition_path(@condition), method: :delete, class: 'delete' %></td>
+      <td><%= link_to 'Edit', edit_admin_condition_path(@condition)%></td>
+    <% end %>
+  </tr>
+</table>
+</html>

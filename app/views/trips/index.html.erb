@@ -1,31 +1,37 @@
-<%= will_paginate @trips %>
-<h1>Trip Index</h1>
-
-<table>
-  <tr>
-    <th>Duration</th>
-    <th>Start Date</th>
-    <th>Start Station</th>
-    <th>End Date</th>
-    <th>End Station</th>
-    <th>Bike Id</th>
-    <th>Subscription Type</th>
-    <th>Zip Code</th>
-  </tr>
-  <% @trips.each do |trip| %>
-    <tr>
-      <td><%= trip.duration %></td>
-      <td><%= trip.start_date %></td>
-      <td><%= trip.start_station_name %></td>
-      <td><%= trip.end_date %></td>
-      <td><%= trip.end_station_name %></td>
-      <td><%= trip.bike_id %></td>
-      <td><%= trip.subscription_type %></td>
-      <td><%= trip.zip_code %></td>
-      <% if current_admin %>
-        <td><%= link_to "Edit", edit_admin_trip_path(trip)  %></td>
-        <td><%= link_to "Delete", admin_trip_path(trip), method: :delete, class: "delete"  %></td>
-      <% end %>
-    </tr>
-    <% end %>
-</table>
+<html class="trip-background">
+  <%= will_paginate @trips %>
+  <div class="centered-text">
+    <h1>Trip Index</h1>
+    <%= link_to "Create a New Station", new_admin_station_path %><br>
+    <%= link_to "Create a New Condition", new_admin_condition_path %><br>
+    <%= link_to "Create a New Trip", new_admin_trip_path %><br>
+    <table class="trip-display">
+      <tr>
+        <th>Duration</th>
+        <th>Start Date</th>
+        <th>Start Station</th>
+        <th>End Date</th>
+        <th>End Station</th>
+        <th>Bike Id</th>
+        <th>Subscription Type</th>
+        <th>Zip Code</th>
+      </tr>
+      <% @trips.each do |trip| %>
+        <tr>
+          <td><%= link_to trip.duration, trip_path(trip) %></td>
+          <td><%= trip.start_date %></td>
+          <td><%= trip.start_station_name %></td>
+          <td><%= trip.end_date %></td>
+          <td><%= trip.end_station_name %></td>
+          <td><%= trip.bike_id %></td>
+          <td><%= trip.subscription_type %></td>
+          <td><%= trip.zip_code %></td>
+          <% if current_admin %>
+            <td><%= link_to "Edit", edit_admin_trip_path(trip)  %></td>
+            <td><%= link_to "Delete", admin_trip_path(trip), method: :delete, class: "delete"  %></td>
+          <% end %>
+        </tr>
+        <% end %>
+    </table>
+  </div>
+</html>
