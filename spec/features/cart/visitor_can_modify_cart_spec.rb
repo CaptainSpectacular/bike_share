@@ -11,7 +11,7 @@ describe "user adds an accessory to cart" do
 
       expect(page).to have_content("You now have 1 #{accessory.title} in your cart.")
       visit stations_path
-      expect(page).to have_content("Cart: 1")
+      expect(page).to have_content("1")
 
       visit root_path
       click_on "Create Account"
@@ -22,7 +22,7 @@ describe "user adds an accessory to cart" do
 
       visit '/cart'
 
-      expect(page).to have_content("Cart: 1")
+      expect(page).to have_content("1")
       expect(page).to have_content("Quantity: 1")
     end
     it "can click_button to add 1 to quantity" do
@@ -33,13 +33,13 @@ describe "user adds an accessory to cart" do
       click_on "Add to Cart"
 
       click_on "Add 1"
-      expect(page).to have_content("Cart: 2")
+      expect(page).to have_content("2")
       expect(page).to have_content("Quantity: 2")
       expect(page).to have_content("Subtotal: 19.98")
       expect(page).to have_content("Total: 19.98")
 
       click_on "Add 1"
-      expect(page).to have_content("Cart: 3")
+      expect(page).to have_content("3")
       expect(page).to have_content("Quantity: 3")
       expect(page).to have_content("Subtotal: 29.97")
       expect(page).to have_content("Total: 29.97")
@@ -56,19 +56,19 @@ describe "user adds an accessory to cart" do
       click_on "Add 1"
       click_on "Subtract 1"
 
-      expect(page).to have_content("Cart: 3")
+      expect(page).to have_content("3")
       expect(page).to have_content("Quantity: 3")
       expect(page).to have_content("Subtotal: 29.97")
       expect(page).to have_content("Total: 29.97")
 
       click_on "Subtract 1"
-      expect(page).to have_content("Cart: 2")
+      expect(page).to have_content("2")
       expect(page).to have_content("Quantity: 2")
       expect(page).to have_content("Subtotal: 19.98")
       expect(page).to have_content("Total: 19.98")
 
       click_on "Subtract 1"
-      expect(page).to have_content("Cart: 1")
+      expect(page).to have_content("1")
       expect(page).to have_content("Quantity: 1")
       expect(page).to have_content("Subtotal: 9.99")
       expect(page).to have_content("Total: 9.99")
@@ -87,7 +87,7 @@ describe "user adds an accessory to cart" do
 
       "You removed #{accessory.title} from your cart."
       expect(current_path).to eq("/cart")
-      expect(page).to have_content("Cart: 0")
+      expect(page).to have_content("0")
       expect(page).to_not have_content("Quantity: ")
       expect(page).to_not have_content("Subtotal: ")
       expect(page).to have_content("Total: 0")
