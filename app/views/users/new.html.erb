@@ -1,9 +1,15 @@
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+<html class="login">
+    <div class="login-box hero-text">
+      <h1>Glad you could join us!</h1>
+        <%= form_for @user do |f| %>
+          <legend><span class="number">1</span><%= label_tag :username %></legend>
+          <%= f.text_field :username %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+          <legend><span class="number">2</span><%= password_field_tag :password %></legend>
+          <%= password_field_tag :password %>
+          <br>
 
-  <%= f.submit "Sign Up" %>
-<% end %>
+          <%= f.submit "Sign Up" %>
+        <% end %>
+    </div>
+</html>

@@ -1,0 +1,255 @@
+$diamond: #D2F2FD;
+$tea-rose: #F67B79;
+$vermilion: #F2412F;
+$ruddy-pink: #DE9B96;
+$white-smoke: #F4F4F4;
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  background-color: $white-smoke;
+  margin: 0;
+  opacity: 0.5;
+  z-index: 1;
+  text-align: center;
+
+  a, li {
+    color: $vermilion;
+    margin: 5px;
+  }
+  ul {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.row {
+  margin: 5px;
+}
+
+
+.ghost-button {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  margin: 5px;
+  border: 3px solid #fff;
+  border-radius: 20px;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  transition: background-color 0.2s ease-out,
+              color 0.2s ease-out;
+  color: white;
+
+  &:hover, &:active,  {
+    background-color: $tea-rose;
+    transition: background-color 0.3s ease-in,
+                color 0.3s ease-in;
+  }
+  a {
+    color: $white-smoke;
+  }
+}
+
+.login {
+  background-color: $diamond;
+}
+
+.login-box {
+  border-radius: 10px;
+  background-color: $white-smoke;
+  display: flex;
+  flex-direction: column;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      padding: 100px 100px;
+    }
+
+    h1 {
+      padding: 10px;
+    }
+}
+
+.number {
+    background: #1abc9c;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-right: 4px;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+    border-radius: 15px 15px 15px 0px;
+}
+
+.cart {
+  position: absolute;
+  right: 5px;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.dashboard-hero {
+  padding-top: 100px;
+}
+
+.panel-footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.shop-button {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  margin: 5px;
+  border: 3px solid #fff;
+  border-radius: 20px;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  transition: background-color 0.2s ease-out,
+              color 0.2s ease-out;
+
+  &:hover, &:active,  {
+    background-color: $tea-rose;
+    transition: background-color 0.3s ease-in,
+                color 0.3s ease-in;
+  }
+}
+
+.welcome-button {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  margin: 5px;
+  border: 3px solid #63c963;
+  border-radius: 20px;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  transition: background-color 0.2s ease-out,
+              color 0.2s ease-out;
+
+  &:hover, &:active,  {
+    background-color: $diamond;
+    transition: background-color 0.3s ease-in,
+                color 0.3s ease-in;
+  }
+}
+
+.accessory-display {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.accessory-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid black;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.home {
+  background-color: $diamond;
+}
+
+.admin-modification {
+  background-image: url(https://images.pexels.com/photos/531756/pexels-photo-531756.jpeg?auto=compress&cs=tinysrgb&h=350);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.admin-login-box {
+  border-radius: 10px;
+  background-color: $white-smoke;
+  display: flex;
+  flex-direction: column;
+  margin-top: 300px;
+  margin-bottom: 100px;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      padding: 25px 100px;
+    }
+
+    h1 {
+      padding: 10px;
+    }
+}
+
+.admin-hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.condition-background {
+  background-image: url(https://images.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F69%2F58%2FDJclFB.jpg&f=1);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.station-background {
+  background-image: url(https://images.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Ff%2Ffb%2FCitybike_station_bikeMi_Milan_Italy_20101230.JPG&f=1);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.station-display {
+  display: flex;
+  justify-content: center;
+}
+
+.trip-background {
+  background-image: url(http://cdn.mntm.me/66/5c/73/Tip-Sheet-Road-Trips-665c733326544377a6335e75b5030d5c.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.trip-display {
+  display: flex;
+  justify-content: center;
+
+  th, td  {
+    padding: 5px;
+    }
+}

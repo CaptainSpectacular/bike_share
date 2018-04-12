@@ -1,28 +1,31 @@
-<h1>Information about Trip <%= @trip.id %></h1>
-
-<table>
-  <tr>
-    <th>Duration</th>
-    <th>Start Date</th>
-    <th>Start Station</th>
-    <th>End Date</th>
-    <th>End Station</th>
-    <th>Bike Id</th>
-    <th>Subscription Type</th>
-    <th>Zip Code</th>
-  </tr>
-  <tr>
-    <td><%= @trip.duration %></td>
-    <td><%= @trip.start_date %></td>
-    <td><%= @trip.start_station_name %></td>
-    <td><%= @trip.end_date %></td>
-    <td><%= @trip.end_station_name %></td>
-    <td><%= @trip.bike_id %></td>
-    <td><%= @trip.subscription_type %></td>
-    <td><%= @trip.zip_code %></td>
-    <% if current_admin %>
-      <td><%= link_to "Edit", edit_admin_trip_path(@trip)  %></td>
-      <td><%= link_to "Delete", admin_trip_path(@trip), method: :delete  %></td>
-    <% end %>
-  </tr>
-</table>
+<html class="trip-background">
+<div class="centered-text">
+  <h1>Information about Trip <%= @trip.id %></h1>
+</div>
+  <table class="trip-display">
+    <tr>
+      <th>Duration</th>
+      <th>Start Date</th>
+      <th>Start Station</th>
+      <th>End Date</th>
+      <th>End Station</th>
+      <th>Bike Id</th>
+      <th>Subscription Type</th>
+      <th>Zip Code</th>
+    </tr>
+    <tr>
+      <td><%= @trip.duration %></td>
+      <td><%= @trip.start_date %></td>
+      <td><%= @trip.start_station_name %></td>
+      <td><%= @trip.end_date %></td>
+      <td><%= @trip.end_station_name %></td>
+      <td><%= @trip.bike_id %></td>
+      <td><%= @trip.subscription_type %></td>
+      <td><%= @trip.zip_code %></td>
+      <% if current_admin %>
+        <td><%= link_to "Edit", edit_admin_trip_path(@trip)  %></td>
+        <td><%= link_to "Delete", admin_trip_path(@trip), method: :delete  %></td>
+      <% end %>
+    </tr>
+  </table>
+</div>

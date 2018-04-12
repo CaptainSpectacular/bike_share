@@ -1,9 +1,15 @@
-<%= @station.id %>
-<%= @station.name %>
-<%= @station.dock_count %>
-<%= @station.city %>
-<%= @station.installation_date %>
-<% if current_admin %>
-  <%= link_to "Edit", edit_station_path(@station) %>
-  <%= link_to "Delete", station_path(@station), method: :delete %>
-<% end %>
+<html class="station-background">
+  <div class="station-display">
+    <div class="accessory-box">
+    <h1>Welcome to the <%= @station.name %> Station!</h1>
+    Id: <%= @station.id %><br>
+    Dock Count: <%= @station.dock_count %><br>
+    City: <%= @station.city %><br>
+    installation Date: <%= @station.installation_date %><br>
+    <% if current_admin %>
+      <%= link_to "Edit", edit_admin_station_path(@station) %>
+      <%= link_to "Delete", station_path(@station), method: :delete %>
+    <% end %>
+  </div>
+  </div>
+</html>

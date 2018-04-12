@@ -1,12 +1,24 @@
-<% @stations.each do |station| %>
-<div class="station-<%= station.id %>">
-  <%= station.name %>
-  <%= station.dock_count %>
-  <%= station.city %>
-  <%= station.installation_date %>
+<html class="station-background">
+<div class="centered-text">
+  <h1 class="stations">Stations</h1>
   <% if current_admin %>
-    <%= link_to "Edit", edit_station_path(station) %>
-    <%= link_to "Delete", admin_station_path(station), method: "delete", data: {confirm: "Are you sure you want to delete this idea?"} %>
+      <%= link_to "Create a New Station", new_admin_station_path %><br>
+      <%= link_to "Create a New Condition", new_admin_condition_path %><br>
+      <%= link_to "Create a New Trip", new_admin_trip_path %><br>
   <% end %>
 </div>
-<% end %>
+  <div class="accessory-display">
+    <% @stations.each do |station| %>
+    <div class="station-<%= station.id %> accessory-box">
+      <%= station.name %>
+      <%= station.dock_count %>
+      <%= station.city %>
+      <%= station.installation_date %>
+      <% if current_admin %>
+        <%= link_to "Edit", edit_station_path(station) %>
+        <%= link_to "Delete", admin_station_path(station), method: "delete", data: {confirm: "Are you sure you want to delete this idea?"} %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+</html>

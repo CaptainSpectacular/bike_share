@@ -1,27 +1,28 @@
-<h1>
-  Conditions Dashboard
-</h1>
+<html class="condition-background">
+<div class="centered-text">
+  <h1>
+    Conditions Dashboard
+  </h1>
 
-<h3> Trips by Temp </h3>
+  <h3> Trips by Temp </h3>
+  <div>
+    <%= @trip_temp_breakdown %>
+  </div>
 
-<div>
-  <%= @trip_temp_breakdown %>
+  <h3> Trips by Precipitation </h3>
+  <div>
+    <%= @trip_pre_breakdown %>
+  <div>
+
+  <h3> Trips by Windspeed </h3>
+  <div>
+    <%= @trip_wind_breakdown %>
+  <div>
+
+  <h3> Trips by Visibility </h3>
+  <div>
+    <%= @trip_visible_breakdown %>
+  </div>
 </div>
 
-<h3> Trips by Precipitation </h3>
-<div>
-  <%= @trip_pre_breakdown %>
-<div>
-
-<h3> Trips by Windspeed </h3>
-<div>
-  <%= @trip_wind_breakdown %>
-<div>
-
-<h3> Trips by Visibility </h3>
-<div>
-  <%= @trip_visible_breakdown %>
-</div>
-
-
-</div>
+</html>
