@@ -14,7 +14,7 @@ describe 'As a registered user' do
       visit bike_shop_path
       click_on "Add to Cart"
       click_on 'Checkout'
-
+save_and_open_page
       click_on order.id
 
       expect(current_path).to eq(order_path(order))

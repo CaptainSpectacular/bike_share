@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def show
-    # require 'pry'; binding.pry
     @user = current_user
   end
 

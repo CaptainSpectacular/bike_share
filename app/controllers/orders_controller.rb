@@ -32,6 +32,10 @@ class OrdersController < ApplicationController
 
   private
     def order_params
+<<<<<<< HEAD
       params.require(:order).permit(:status, :total)
+=======
+
+>>>>>>> current order behavior
     end
 end
