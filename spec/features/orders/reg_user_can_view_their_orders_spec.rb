@@ -17,13 +17,15 @@ describe 'As a registered user' do
 
       click_on '1'
 
+      order = Order.last
+
       expect(current_path).to eq(order_path(order))
+      expect(page).to have_content(order.total)
+      expect(page).to have_content(order.status)
+      expect(page).to have_content(order.date_time)
       expect(page).to have_content(order.items)
       expect(page).to have_content(order.items.first.subtotal)
       expect(page).to have_content(order.items.first.quantity)
-      expect(page).to have_content(order.total)
-      expect(page).to have_content(order.status)
-      expect(page).to have_content(order.datetime_submit)
     end
   end
 end
