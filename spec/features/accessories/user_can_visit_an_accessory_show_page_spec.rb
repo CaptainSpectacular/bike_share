@@ -8,7 +8,8 @@ describe 'user visits an accessory show page' do
 
     expect(page).to have_content(accessory.title)
     expect(page).to have_content(accessory.price)
-    expect(page).to have_content(accessory.image)
+    expect(page).to have_css("img[src*='http://my_string.com/something.png']")
+
 
     click_on "Add to Cart"
     expect(current_path).to eq('/cart')

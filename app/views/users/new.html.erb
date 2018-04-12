@@ -5,8 +5,8 @@
           <legend><span class="number">1</span><%= label_tag :username %></legend>
           <%= f.text_field :username %>
 
-          <legend><span class="number">2</span><%= password_field_tag :password %></legend>
-          <%= password_field_tag :password %>
+          <legend><span class="number">2</span><%= label_tag :password %></legend>
+          <%= f.password_field :password %>
           <br>
 
           <%= f.submit "Sign Up" %>

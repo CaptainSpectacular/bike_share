@@ -21,8 +21,7 @@ describe 'Authorization' do
   describe 'user visits dashboard' do
     it 'creates a new account' do
       visit root_path
-      click_on "Create Account"
-
+      click_on "Create Account"    
       fill_in "user[username]", with: "Batman"
       fill_in "user[password]", with: "Robin"
       click_on "Sign Up"
