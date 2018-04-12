@@ -12,21 +12,18 @@ describe 'As a registered user' do
 
       accessory2 = create(:accessory_2)
       visit bike_shop_path
-      click_on 'Add to Cart'
+      click_on "Add to Cart"
       click_on 'Checkout'
 
-      click_on '1'
-
-      order = Order.last
+      click_on order.id
 
       expect(current_path).to eq(order_path(order))
-
+      expect(page).to have_content(order.items)
+      expect(page).to have_content(order.items.first.subtotal)
+      expect(page).to have_content(order.items.first.quantity)
       expect(page).to have_content(order.total)
       expect(page).to have_content(order.status)
-      expect(page).to have_content(order.date_time)
-      expect(page).to have_content(order.accessories.first.title)
-      expect(page).to have_content(order.accessories.first.order_quantity(order))
-      expect(page).to have_content(order.accessories.first.order_subtotal(order))
+      expect(page).to have_content(order.datetime_submit)
     end
   end
 end
