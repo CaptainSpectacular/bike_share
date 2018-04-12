@@ -1,1 +1,32 @@
-Logged in as <%= @user.username %>
+<html class="login">
+<div class="hero-text">
+  <h1 class="centered-text">Hello, <%= @user.username %>!</h1>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-sm-4 box">
+          <img src="https://www.6pr.com.au/wp-content/uploads/sites/13/2017/05/books-e1495428109146.jpg" class="img-responsive" style="width:100%" alt="Image">
+          <p>Check out some information!</p>
+          <li class="shop-button"><%= link_to "Learn!", stations_path %></li>
+        </div>
+        <div class="col-sm-4 box">
+          <img src="https://i.pinimg.com/originals/3d/70/4b/3d704bb6bb8d8d15dc042a31e08f3df4.jpg" style="width:100%" alt="Image">
+          <p>In Need of Some Gear?</p>
+          <li class="shop-button"><%= link_to "Shop Now!", bike_shop_path %></li>
+        </div>
+        <div class="col-sm-4 box">
+          <img src="https://rakeshpaliwal72.files.wordpress.com/2014/10/team-india1.jpg" class="img-responsive" style="width:100%" alt="Image">
+          <p>Go Explore the City!</p>
+          <li class="shop-button"><%= link_to "Google Maps", "https://www.google.com/maps" %></li>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="panel-footer">
+  Logged in as <%= @user.username %><br>
+  <% if current_admin %>
+    <%= link_to "Create a New Station", new_admin_station_path %><br>
+    <%= link_to "Create a New Condition", new_admin_condition_path %><br>
+  <% end %>
+</div>
+</html>

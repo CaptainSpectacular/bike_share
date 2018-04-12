@@ -9,7 +9,7 @@ describe 'Authorization' do
 
       fill_in "username", with: user.username
       fill_in "password", with: user.password
-      
+
       within("form") do
         click_on "Login"
       end

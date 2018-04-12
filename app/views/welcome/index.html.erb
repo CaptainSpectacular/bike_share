@@ -1,2 +1,56 @@
-<li class="hero-text"><%= link_to "Login", login_path %></li>
-<li><%= link_to "Create Account", new_user_path %></li>
+<html class="home">
+<div class="hero-text">
+  <ul>
+    <li class="ghost-button"><%= link_to "Login", login_path %></li><br>
+    <li class="ghost-button"><%= link_to "Create Account", new_user_path %></li>
+  </ul>
+</div>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="https://www.airfrance.fr/FR/common/common/img/tbaf/news/SFO/decouverte-personnalisee-de-san-francisco-des-vins-de-napa-valley/SFO-decouverte-personnalisee-de-san-francisco-des-vins-de-napa-valley-2_1-1280x640.jpg" class="img-responsive" style="width:100%; height: 50%;" alt="Image">
+      </div>
+      <div class="item">
+        <img src="http://grandlegacyhotel.com/wp-content/uploads/2016/05/Mono-Lake-All-Aglow-at-Sun-Rise-1024x512.jpg" class="img-responsive" style="width:100%" alt="Image">
+      </div>
+      <div class="item">
+        <img src="http://www.cogwild.com/wordpress/wp-content/uploads/2015/03/cog_smith_5-1024x512.jpg" class="img-responsive" style="width:100%" alt="Image">
+      </div>
+    </div>
+
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm-4 box">
+      <img src="https://cdn3.iconfinder.com/data/icons/dental-blue-icons/512/Untitled-6.png" class="img-responsive" style="width:100%" alt="Image">
+      <p>Find More Information About Your City!</p>
+      <li class="welcome-button"><%= link_to "Learn!", stations_path %></li>
+    </div>
+    <div class="col-sm-4 box">
+      <img src="https://image.flaticon.com/icons/svg/60/60473.svg" class="img-responsive" style="width:100%" alt="Image">
+      <p>Gear Up!</p>
+      <li class="welcome-button"><%= link_to "Shop Now!", bike_shop_path %></li>
+    </div>
+    <div class="col-sm-4 box">
+      <img src="https://www.vadodaramarathon.com/images/Running-man-colour1.png" class="img-responsive" style="width:100%" alt="Image">
+      <p>Go!</p>
+      <li class="welcome-button"><%= link_to "Google Maps", "https://www.google.com/maps" %></li>
+    </div>
+  </div>
+</div>
+</html>

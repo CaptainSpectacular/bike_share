@@ -1,31 +1,30 @@
+<html class="condition-background">
+  <h1 class="centered-text">Conditions</h1>
+  <% @conditions.each do |condition| %>
+    <div class="accessory-box">
+      <h3> Date: <%= link_to condition.date, condition_path(condition) %> </h3>
 
-<%= @conditions.each do |condition| %>
-  <h3>
-    Date: <%= link_to condition.date, condition_path(condition) %>
-  </h3>
-
-  <p>
-    Max Temp: <%= condition.max_temp %>
-  </p>
-  <p>
-    Mean Temp: <%= condition.average_temp %>
-  </p>
-  <p>
-    Min Temp: <%= condition.min_temp %>
-  </p>
-  <p>
-    Mean Humidity: <%= condition.average_humidity %>
-  </p>
-  <p>
-    Mean Visibility: <%= condition.average_visibility %> miles
-  </p>
-  <p>
-    Mean Windspeed: <%= condition.average_windspeed %> mph
-  </p>
-  <p>
-    Precipitation: <%= condition.precipitation %> inches
-  </p>
-  <%= link_to 'Delete', admin_condition_path(condition), method: :delete, class: 'delete' if current_admin %>
-  <%= link_to 'Edit', edit_admin_condition_path(condition) if current_admin %>
-
-<% end %>
+      <p> Max Temp: <%= condition.max_temp %> </p>
+      <p>
+        Mean Temp: <%= condition.average_temp %>
+      </p>
+      <p>
+        Min Temp: <%= condition.min_temp %>
+      </p>
+      <p>
+        Mean Humidity: <%= condition.average_humidity %>
+      </p>
+      <p>
+        Mean Visibility: <%= condition.average_visibility %> miles
+      </p>
+      <p>
+        Mean Windspeed: <%= condition.average_windspeed %> mph
+      </p>
+      <p>
+        Precipitation: <%= condition.precipitation %> inches
+      </p>
+      <%= link_to 'Delete', admin_condition_path(condition), method: :delete, class: 'delete' if current_admin %>
+      <%= link_to 'Edit', edit_admin_condition_path(condition) if current_admin %>
+    </div>
+  <% end %>
+</html>

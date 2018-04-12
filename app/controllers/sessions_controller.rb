@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    session[:user_id] = nil
   end
 
   def create
@@ -14,6 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to dashboard_path
+    redirect_to root_path
   end
 end

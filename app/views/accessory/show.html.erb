@@ -1,4 +1,6 @@
-<%= @accessory.title %>
-<%= @accessory.price %>
-<%= @accessory.image %>
-<%= button_to "Add to Cart", cart_path(accessory_id: @accessory.id) %>
+<div>
+  <%= @accessory.title %>
+  <%= @accessory.price %>
+  <%= image_tag @accessory.image %>
+  <%= button_to "Add to Cart", cart_path(accessory_id: @accessory.id) %>
+</div>

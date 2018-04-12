@@ -10,6 +10,7 @@ class Cart
   end
 
   def add_accessory(accessory)
+    @contents[accessory.id.to_s] ||= 0
     @contents[accessory.id.to_s] += 1
   end
 
