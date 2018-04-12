@@ -1,6 +1,9 @@
-<div>
-  <%= @accessory.title %>
-  <%= @accessory.price %>
-  <%= image_tag @accessory.image %>
-  <%= button_to "Add to Cart", cart_path(accessory_id: @accessory.id) %>
-</div>
+<html class="home">
+  <div class="hero-text accessory-box">
+    <h1><%= @accessory.title %></h1>
+    Price: <%= @accessory.price %>
+    <%= image_tag @accessory.image %>
+    <%= button_to "Add to Cart", cart_path(accessory_id: @accessory.id) %>
+    <%= link_to "Back to Shop", bike_shop_path %>
+  </div>
+</html>
