@@ -24,7 +24,7 @@ CSV.foreach('./db/fixtures/trips.csv', OPTIONS) do |row|
                bike_id: row[:bike_id],
                subscription_type: row[:subscription_type],
                zip_code: row[:zip_code],
-               condition_id: Condition.find_by(date: Chronic.parse(row[:start_date]).strftime('%a, %d %b %Y')).id )
+               condition_id: Condition.find_by(date: Chronic.parse(row[:start_date])).id )
 end
 
 
