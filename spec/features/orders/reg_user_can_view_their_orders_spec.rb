@@ -12,10 +12,10 @@ describe 'As a registered user' do
 
       accessory2 = create(:accessory_2)
       visit bike_shop_path
-      click_on "Add to Cart"
+      click_on 'Add to Cart'
       click_on 'Checkout'
-save_and_open_page
-      click_on order.id
+
+      click_on '1'
 
       expect(current_path).to eq(order_path(order))
       expect(page).to have_content(order.items)

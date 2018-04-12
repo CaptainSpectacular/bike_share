@@ -5,6 +5,7 @@ class CartController < ApplicationController
     @accessories = @cart.contents.map do |accessory_id, count|
       Accessory.find(accessory_id.to_i)
     end
+
   end
 
   def create
