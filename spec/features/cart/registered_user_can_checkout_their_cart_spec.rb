@@ -20,7 +20,7 @@ describe 'As a registered user' do
 
     end
 
-    it 'I see a button to checkout' do
+    it 'I can click checkout and see my dashboard with a flash message' do
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -30,8 +30,10 @@ describe 'As a registered user' do
 
       click_on 'Add to Cart'
       visit '/cart'
+      click_on 'Checkout'
 
-      expect(page).to have_link('Checkout')
+      expect(current_path).to eq(dashboard_path)
+      expect(page).to have_content('Successfully submitted your order totalling $9.99')
     end
   end
 end
