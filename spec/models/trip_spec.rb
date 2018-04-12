@@ -17,4 +17,30 @@ RSpec.describe Trip, type: :model do
     it{should respond_to :stations}
     it{is_expected.to belong_to(:condition)}
   end
+
+  describe 'class methods' do
+    it '.best_weather' do
+      condition1 = create(:con1)
+      condition2 = create(:con2)
+      trip1      = create(:trip, condition: condition1)
+      trip2      = create(:trip, condition: condition1)
+      trip3      = create(:trip, condition: condition1)
+      trip4      = create(:trip, condition: condition2)
+      trip5      = create(:trip, condition: condition2)
+
+      expect(Trip.best_weather).to eq(condition1.id)
+    end
+
+    it '.worst_weather' do
+      condition1 = create(:con1)
+      condition2 = create(:con2)
+      trip1      = create(:trip, condition: condition1)
+      trip2      = create(:trip, condition: condition1)
+      trip3      = create(:trip, condition: condition1)
+      trip4      = create(:trip, condition: condition2)
+      trip5      = create(:trip, condition: condition2)
+
+      expect(Trip.worst_weather).to eq(condition2.id)
+    end
+  end
 end

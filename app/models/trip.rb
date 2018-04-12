@@ -14,4 +14,18 @@ class Trip < ApplicationRecord
   has_many :stations, through: :trips
 
   self.per_page = 30
+
+  def self.best_weather
+    joins(:condition)
+      .group(:condition_id)
+      .count(:condition_id)
+      .max_by { |_k, v| v }[0]
+  end
+
+  def self.worst_weather
+    joins(:condition)
+      .group(:condition_id)
+      .count(:condition_id)
+      .min_by { |_k, v| v }[0]
+  end
 end
