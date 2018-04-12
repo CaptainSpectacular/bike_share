@@ -42,6 +42,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'simplecov'
   gem 'shoulda-matchers'
+  gem 'chronic'
 end
 
 group :development do

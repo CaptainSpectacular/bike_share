@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :con1, class: Condition do
-    date '02/01/2011'
+    date Time.now
     max_temp 1.5
     average_temp 1.5
     min_temp 1.5
@@ -11,7 +11,7 @@ FactoryBot.define do
   end
 
   factory :con2, class: Condition do
-    date '07/20/2014'
+    date Time.now
     max_temp 2.0
     average_temp 2.0
     min_temp 2.0

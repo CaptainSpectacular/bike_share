@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :trip do
     sequence(:duration) {|n| 1 + n }
-    start_date "MyString"
+    start_date Time.now
     start_station_name "MyString"
     start_station_id 1
-    end_date "MyString"
+    end_date Time.now
     end_station_name "MyString"
     end_station_id 1
     bike_id 1
@@ -14,10 +14,10 @@ FactoryBot.define do
 
   factory :trip_999, class: Trip do
     duration 66
-    start_date "12/24/1986"
+    start_date Time.now
     start_station_name "Colfax"
     start_station_id 1
-    end_date "12/24/1986"
+    end_date Time.now
     end_station_name "Colfax"
     end_station_id 1
     bike_id 154
@@ -26,10 +26,10 @@ FactoryBot.define do
   end
   factory :trip_1000, class: Trip do
     duration 34
-    start_date "2/12/2004"
+    start_date Time.now + 11111111
     start_station_name "Broadway"
     start_station_id 3
-    end_date "2/12/2004"
+    end_date Time.now + 1111111
     end_station_name "Broadway"
     end_station_id 3
     bike_id 2
