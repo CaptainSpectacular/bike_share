@@ -1,6 +1,9 @@
 <html class="login">
 <div class="hero-text">
   <h1 class="centered-text">Hello, <%= @user.username %>!</h1>
+  <% @user.orders.each do |order| %>
+    <%= link_to order.id, order_path(order) %>
+    <% end %>
     <div class="container text-center">
       <div class="row">
         <div class="col-sm-4 box">

@@ -11,4 +11,10 @@ FactoryBot.define do
     password "normal_user_password"
     role 1
   end
+  factory :user2, class: User do
+    id 3
+    username "another_user"
+    password "another_user_password"
+    role 1
+  end
 end
