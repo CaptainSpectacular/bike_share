@@ -16,4 +16,6 @@
     <%= button_to "Remove Accessory from Cart", cart_path(accessory_id: accessory.id), method: "delete", data: {confirm: "Are you sure you want to remove this from the cart?"}%>
   </div>
 <% end %>
-</div>
+Cart Total: <%= @cart.total %>
+
+<%= link_to 'Checkout', orders_path(order: {status: 'ordered', total: @cart.total}), method: :post %>
