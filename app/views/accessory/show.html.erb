@@ -4,7 +4,7 @@
     Price: $<%= @accessory.price %>
     <img src="<%= @accessory.image %>">
     <% if @accessory.status == " active" %>
-      <%= button_to "Add to Cart", cart_path(accessory_id: accessory.id, value: "add") %>
+      <%= button_to "Add to Cart", cart_path(accessory_id: @accessory.id, value: "add") %>
     <% else %>
       <p>Sorry, Accessory is Retired!</p>
     <% end %>
