@@ -12,9 +12,6 @@ class Accessory < ApplicationRecord
   end
 
   def order_subtotal(order)
-    select("order_accesssories.quantity * accessories.price AS subtotal")
-    .where("order_accessories.order_id = #{order.id}")
-    .take
-    .subtotal
+    price * order_quantity(order)
   end
 end
