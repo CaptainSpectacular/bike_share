@@ -83,9 +83,9 @@ describe "user adds an accessory to cart" do
       click_on "Add 1"
       click_on "Add 1"
 
-      click_on "Remove Accessory from Cart"
+      click_on "Remove"
 
-      "You removed #{accessory.title} from your cart."
+      expect(page).to have_content("Successfully removed #{accessory.title} from your cart")
       expect(current_path).to eq("/cart")
       expect(page).to have_content("0")
       expect(page).to_not have_content("Quantity: ")
