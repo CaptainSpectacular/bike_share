@@ -12,7 +12,7 @@
     <% @stations.each do |station| %>
     <div class="station-<%= station.id %> accessory-box">
       <%= station.name %>
-      <%= station.dock_count %>
+      Dock Count: <%= station.dock_count %>
       <%= station.city %>
       <%= station.installation_date %>
       <% if current_admin %>

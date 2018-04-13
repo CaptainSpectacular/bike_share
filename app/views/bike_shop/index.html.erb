@@ -6,7 +6,7 @@
     <%= link_to accessory.title, accessory_path(accessory)  %>
     $<%= accessory.price %>
     <img src="<%= accessory.image %>">
-    <% if accessory.status == " active" %>
+    <% if accessory.status == "active" %>
       <%= button_to "Add to Cart", cart_path(accessory_id: accessory.id, value: "add") %>
     <% else %>
       <p>Sorry, Accessory is Retired!</p>
