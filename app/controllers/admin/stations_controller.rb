@@ -32,7 +32,7 @@ module Admin
     def destroy
       station = Station.friendly.find(params[:id])
       station.destroy
-      flash[:notice] = "#{station.name} was deleted!"
+      flash[:success] = "#{station.name} was deleted!"
       redirect_to stations_path
     end
 

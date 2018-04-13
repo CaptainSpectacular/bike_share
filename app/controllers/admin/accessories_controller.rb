@@ -4,7 +4,7 @@ module Admin
     def create
       @accessory = Accessory.new(accessory_params)
       if @accessory.save
-        flash[:notice] = "You have created #{@accessory.title}!"
+        flash[:success] = "You have created #{@accessory.title}!"
         redirect_to bike_shop_path
       else
         render :'admin/bike_shop/new'
