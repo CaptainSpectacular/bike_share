@@ -4,6 +4,7 @@ class CreateAccessories < ActiveRecord::Migration[5.1]
       t.string :title
       t.decimal :price
       t.string :image
+      t.string :status
 
       t.timestamps
     end

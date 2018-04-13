@@ -1,6 +1,6 @@
 <div class="centered-text">
   <h1>Your Cart<br>
-  Cart Total: <%= @cart.total %></h1>
+  Cart Total: $<%= @cart.total %></h1>
   <%= link_to "Back to Shop", bike_shop_path %>
 </div>
 <div class="accessory-display">
@@ -8,9 +8,9 @@
   <div class="accessory-<%= accessory.id %> accessory-box">
     <%= accessory.title %>
     <%= accessory.price %>
-    <%= image_tag accessory.image %>
+    <img src="<%= accessory.image %>">
     Quantity: <%= @cart.accessory_count(accessory.id.to_s) %>
-    Subtotal: <%= @cart.accessory_count(accessory.id.to_s) * accessory.price %>
+    Subtotal: $<%= @cart.accessory_count(accessory.id.to_s) * accessory.price %>
     <%= button_to "Add 1", cart_path(accessory_id: accessory.id, value: "add") %>
     <%= button_to "Subtract 1", cart_path(accessory_id: accessory.id, value: "subtract") %>
     <%= button_to "Remove Accessory from Cart", cart_path(accessory_id: accessory.id), method: "delete", data: {confirm: "Are you sure you want to remove this from the cart?"}%>
