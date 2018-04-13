@@ -1,0 +1,8 @@
+<% @accessories.each do |accessory| %>
+  <%= accessory.title %>
+  <%= accessory.price %>
+  <img src="<%= accessory.image %>">
+  <%= link_to "Edit", edit_admin_accessory_path(accessory) %>
+  <%= link_to "Delete", admin_accessory_path(accessory), method: "delete" %>
+  <%= accessory.status %>
+<% end %>
