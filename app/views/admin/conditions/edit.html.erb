@@ -4,7 +4,7 @@
 
     <%= form_for [:admin, @condition] do |f| %>
       <legend><span class="number">1</span><%= f.label :date %></legend>
-      <%= f.text_field :date %><br>
+      <%= f.date_field :date %><br>
 
       <legend><span class="number">2</span><%= f.label :max_temp %></legend>
       <%= f.number_field :max_temp %><br>

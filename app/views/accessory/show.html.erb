@@ -1,9 +1,11 @@
 <html class="home">
   <div class="hero-text accessory-box">
-    <h1><%= @accessory.title %></h1>
+    Title: <h1><%= @accessory.title %></h1>
     Price: $<%= @accessory.price %>
+    Description <%= @accessory.description %>
+    Status <%= @accessory.status %>
     <img src="<%= @accessory.image %>">
-    <% if @accessory.status == " active" %>
+    <% if @accessory.status == "active" %>
       <%= button_to "Add to Cart", cart_path(accessory_id: @accessory.id, value: "add") %>
     <% else %>
       <p>Sorry, Accessory is Retired!</p>

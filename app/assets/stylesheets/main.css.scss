@@ -3,6 +3,8 @@ $tea-rose: #F67B79;
 $vermilion: #F2412F;
 $ruddy-pink: #DE9B96;
 $white-smoke: #F4F4F4;
+$flash-success: #37d31b;
+$flash-danger: #e21818;
 
 a {
   text-decoration: none;
@@ -253,4 +255,14 @@ ul {
   th, td  {
     padding: 5px;
     }
+}
+
+.success {
+  color: $flash-success;
+  text-align: center;
+}
+
+.danger {
+  color: $flash-danger;
+  text-align: center;
 }

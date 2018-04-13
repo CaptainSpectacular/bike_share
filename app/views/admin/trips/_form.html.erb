@@ -8,13 +8,13 @@
       <%= f.collection_select(:start_station_id, @stations, :id, :name) %><br>
 
       <legend><span class="number">3</span><%= f.label :start_date %></legend>
-      <%= f.text_field :start_date %><br>
+      <%= f.date_field :start_date %><br>
 
       <legend><span class="number">4</span><%= f.label :end_station_name %></legend>
       <%= f.collection_select(:end_station_id, @stations, :id, :name) %><br>
 
       <legend><span class="number">5</span><%= f.label :end_date %></legend>
-      <%= f.text_field :end_date %><br>
+      <%= f.date_field :end_date %><br>
 
       <legend><span class="number">6</span><%= f.label :bike_id %></legend>
       <%= f.number_field :bike_id %><br>

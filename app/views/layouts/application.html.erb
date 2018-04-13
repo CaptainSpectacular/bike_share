@@ -13,7 +13,11 @@
   <body>
     <%= render 'partials/navigation' %>
     <% flash.each do |message_type, message| %>
-      <div><%= message %></div>
+      <% if message_type == "success" %>
+        <div class="success"><%= message %></div>
+      <% else %>
+        <div class="danger"><%= message %></div>
+      <% end %>
     <% end %>
     <%= yield %>
   </body>

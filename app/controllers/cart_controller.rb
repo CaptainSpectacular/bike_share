@@ -20,7 +20,7 @@ class CartController < ApplicationController
       session[:cart] = @cart.contents
     end
 
-    flash[:notice] = "You now have #{pluralize(@cart.accessory_count(@accessory.id.to_s), @accessory.title)} in your cart."
+    flash[:success] = "You now have #{pluralize(@cart.accessory_count(@accessory.id.to_s), @accessory.title)} in your cart."
     redirect_to '/cart'
   end
 
@@ -30,7 +30,7 @@ class CartController < ApplicationController
     @cart.delete_accessory(@accessory)
     session[:cart] = @cart.contents
 
-    flash[:notice] = "You removed #{@accessory.title} from your cart."
+    flash[:success] = "Successfully removed #{@accessory.title} from your cart."
     redirect_to '/cart'
   end
 

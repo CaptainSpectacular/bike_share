@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20180413011032) do
   create_table "accessories", force: :cascade do |t|
     t.string "title"
     t.decimal "price"
+    t.text "description"
     t.string "image"
     t.string "status"
     t.datetime "created_at", null: false

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#show'
   get '/admin/dashboard', to: 'admin/dashboard#index'
   get '/admin/bike-shop', to: 'admin/bike_shop#index'
-
+  get '/admin/bike-shop/new',to: 'admin/bike_shop#new'
   get '/bike-shop', to: 'bike_shop#index'
   post '/cart', to: 'cart#create'
   get '/cart', to: 'cart#index'
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :conditions, exclude: [:index, :show]
     resources :stations
     resources :trips
-    resources :accessory
+    resources :accessories
   end
 
   resources :stations
