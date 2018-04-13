@@ -18,4 +18,4 @@
 <% end %>
 Cart Total: <%= @cart.total %>
 
-<%= link_to 'Checkout', orders_path(order: {contents: @cart.contents, status: 'ordered'}), method: :post %>
+<%= link_to 'Checkout', orders_path(order: {status: 'ordered', total: @cart.total}), method: :post %>

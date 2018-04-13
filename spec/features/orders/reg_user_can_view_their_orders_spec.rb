@@ -20,12 +20,13 @@ describe 'As a registered user' do
       order = Order.last
 
       expect(current_path).to eq(order_path(order))
+
       expect(page).to have_content(order.total)
       expect(page).to have_content(order.status)
       expect(page).to have_content(order.date_time)
       expect(page).to have_content(order.accessories.first.title)
-      expect(page).to have_content(order.items.first.subtotal)
-      expect(page).to have_content(order.items.first.quantity)
+      expect(page).to have_content(order.accessories.first.order_quantity(order))
+      expect(page).to have_content(order.accessories.first.order_subtotal(order))
     end
   end
 end

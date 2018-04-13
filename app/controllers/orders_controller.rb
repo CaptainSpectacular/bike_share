@@ -3,23 +3,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-<<<<<<< HEAD
     order = Order.new(order_params)
     order.date_time = DateTime.now
-=======
-    order = Order.new
-    order.total = Accessory.find(order_params[:contents].keys.first.to_i).price * order_params[:contents].values.first.to_i
-    order.date_time = DateTime.now
-    order.status = order_params[:status]
->>>>>>> can add order with one accessory
     order.user_id = current_user.id
     if order.save
-<<<<<<< HEAD
       session[:cart].each do |order_object|
         OrderAccessory.create!(accessory_id: order_object[0], order_id: order.id, quantity: order_object[1])
       end
-=======
->>>>>>> can add order with one accessory
       flash[:success] = "Successfully submitted your order totalling $#{order.total}"
       redirect_to dashboard_path
     else
@@ -44,6 +34,7 @@ class OrdersController < ApplicationController
     def order_params
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       params.require(:order).permit(:status, :total)
 =======
 
@@ -52,5 +43,8 @@ class OrdersController < ApplicationController
       content_keys = params[:order][:contents].keys
       params.require(:order).permit(:status, contents: content_keys)
 >>>>>>> can add order with one accessory
+=======
+      params.require(:order).permit(:status, :total)
+>>>>>>> accessory order_quantity and order_subtotal methods
     end
 end
