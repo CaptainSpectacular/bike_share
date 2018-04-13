@@ -168,6 +168,8 @@ ul {
 .accessory-display {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .accessory-box {
@@ -238,14 +240,13 @@ ul {
   justify-content: center;
 }
 
-.trip-background {
-  background-image: url(http://cdn.mntm.me/66/5c/73/Tip-Sheet-Road-Trips-665c733326544377a6335e75b5030d5c.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+.trip-header {
+  position: relative;
+  text-align: center;
 }
 
 .trip-display {
+  margin-top: 25px;
   display: flex;
   justify-content: center;
 

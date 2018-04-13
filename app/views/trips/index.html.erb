@@ -1,10 +1,12 @@
 <html class="trip-background">
-  <%= will_paginate @trips %>
+  <h1 class="trip-header">Trip Index</h1>
+  <img src="http://cdn.mntm.me/66/5c/73/Tip-Sheet-Road-Trips-665c733326544377a6335e75b5030d5c.jpg" class="img-responsive" style="width:100%">
   <div class="centered-text">
-    <h1>Trip Index</h1>
-    <%= link_to "Create a New Station", new_admin_station_path %><br>
-    <%= link_to "Create a New Condition", new_admin_condition_path %><br>
-    <%= link_to "Create a New Trip", new_admin_trip_path %><br>
+    <% if current_admin %>
+      <%= link_to "Create a New Station", new_admin_station_path %><br>
+      <%= link_to "Create a New Condition", new_admin_condition_path %><br>
+      <%= link_to "Create a New Trip", new_admin_trip_path %><br>
+    <% end %>
     <table class="trip-display">
       <tr>
         <th>Duration</th>
@@ -33,5 +35,6 @@
         </tr>
         <% end %>
     </table>
+      <%= will_paginate @trips %>
   </div>
 </html>

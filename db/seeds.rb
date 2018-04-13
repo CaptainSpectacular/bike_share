@@ -2,7 +2,7 @@ require 'csv'
 require 'chronic'
 OPTIONS = { headers: true, header_converters: :symbol }
 
-CSV.foreach('./db/fixtures/conditions.csv', OPTIONS) do |row| 
+CSV.foreach('./db/fixtures/conditions.csv', OPTIONS) do |row|
   Condition.create( average_temp: row[:mean_temperature_f],
                     min_temp: row[:min_temperature_f],
                     max_temp: row[:max_temperature_f],
@@ -10,7 +10,7 @@ CSV.foreach('./db/fixtures/conditions.csv', OPTIONS) do |row|
                     average_windspeed: row[:mean_wind_speed_mph],
                     precipitation: row[:precipitation_inches],
                     date: Chronic.parse(row[:date]),
-                    average_humidity: row[:mean_humidity]) 
+                    average_humidity: row[:mean_humidity])
 end
 
 CSV.foreach('./db/fixtures/trips.csv', OPTIONS) do |row|
@@ -33,4 +33,11 @@ CSV.foreach('./db/fixtures/stations.csv', OPTIONS) do |row|
                   dock_count: row[:dock_count],
                   city: row[:city],
                   installation_date: row[:installation_date] )
+end
+
+CSV.foreach('./db/fixtures/accessories.csv', OPTIONS) do |row|
+  Accessory.create(title: row[:title],
+                  price: row[:price],
+                  image: row[:image],
+                  status: row[:status] )
 end

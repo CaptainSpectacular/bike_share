@@ -35,14 +35,14 @@ describe "user adds an accessory to cart" do
       click_on "Add 1"
       expect(page).to have_content("2")
       expect(page).to have_content("Quantity: 2")
-      expect(page).to have_content("Subtotal: 19.98")
-      expect(page).to have_content("Total: 19.98")
+      expect(page).to have_content("Subtotal: $19.98")
+      expect(page).to have_content("Total: $19.98")
 
       click_on "Add 1"
       expect(page).to have_content("3")
       expect(page).to have_content("Quantity: 3")
-      expect(page).to have_content("Subtotal: 29.97")
-      expect(page).to have_content("Total: 29.97")
+      expect(page).to have_content("Subtotal: $29.97")
+      expect(page).to have_content("Total: $29.97")
     end
     it "can click_button to subtract 1 to quantity" do
       accessory = create(:accessory)
@@ -58,20 +58,20 @@ describe "user adds an accessory to cart" do
 
       expect(page).to have_content("3")
       expect(page).to have_content("Quantity: 3")
-      expect(page).to have_content("Subtotal: 29.97")
-      expect(page).to have_content("Total: 29.97")
+      expect(page).to have_content("Subtotal: $29.97")
+      expect(page).to have_content("Total: $29.97")
 
       click_on "Subtract 1"
       expect(page).to have_content("2")
       expect(page).to have_content("Quantity: 2")
-      expect(page).to have_content("Subtotal: 19.98")
-      expect(page).to have_content("Total: 19.98")
+      expect(page).to have_content("Subtotal: $19.98")
+      expect(page).to have_content("Total: $19.98")
 
       click_on "Subtract 1"
       expect(page).to have_content("1")
       expect(page).to have_content("Quantity: 1")
-      expect(page).to have_content("Subtotal: 9.99")
-      expect(page).to have_content("Total: 9.99")
+      expect(page).to have_content("Subtotal: $9.99")
+      expect(page).to have_content("Total: $9.99")
     end
     it "can click_button to subtract 1 to quantity" do
       accessory = create(:accessory)
@@ -89,8 +89,31 @@ describe "user adds an accessory to cart" do
       expect(current_path).to eq("/cart")
       expect(page).to have_content("0")
       expect(page).to_not have_content("Quantity: ")
-      expect(page).to_not have_content("Subtotal: ")
-      expect(page).to have_content("Total: 0")
+      expect(page).to_not have_content("Subtotal: $")
+      expect(page).to have_content("Total: $0")
+    end
+    it "clears the cart when you log out" do
+      user = create(:user)
+      accessory = create(:accessory)
+
+      visit login_path
+
+      fill_in "username", with: user.username
+      fill_in "password", with: user.password
+      within("form") do
+        click_on "Login"
+      end
+
+      visit '/bike-shop'
+      click_on 'Add to Cart'
+      visit '/cart'
+      click_on "Add 1"
+      click_on "Add 1"
+      click_on "Add 1"
+
+      click_on "Logout"
+      visit cart_path
+      expect(page).to have_content("Cart Total: $0")
     end
   end
 end

@@ -1,9 +1,13 @@
 <html class="home">
   <div class="hero-text accessory-box">
     <h1><%= @accessory.title %></h1>
-    Price: <%= @accessory.price %>
-    <%= image_tag @accessory.image %>
-    <%= button_to "Add to Cart", cart_path(accessory_id: @accessory.id) %>
+    Price: $<%= @accessory.price %>
+    <img src="<%= @accessory.image %>">
+    <% if @accessory.status == " active" %>
+      <%= button_to "Add to Cart", cart_path(accessory_id: @accessory.id, value: "add") %>
+    <% else %>
+      <p>Sorry, Accessory is Retired!</p>
+    <% end %>
     <%= link_to "Back to Shop", bike_shop_path %>
   </div>
 </html>
