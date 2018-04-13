@@ -1,8 +1,4 @@
 require 'rails_helper'
-# I do not see the order of another user.
-#
-# If the order was completed or cancelled,
-# I see a timestamp when the action took place.
 
 describe 'As a registered user' do
   describe 'when I visit /dashboard and click one of my orders' do
@@ -10,8 +6,9 @@ describe 'As a registered user' do
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      accessory2 = create(:accessory_2)
+      accessory = create(:accessory)
       visit bike_shop_path
+
       click_on 'Add to Cart'
       click_on 'Checkout'
 
@@ -27,6 +24,11 @@ describe 'As a registered user' do
       expect(page).to have_content(order.accessories.first.title)
       expect(page).to have_content(order.accessories.first.order_quantity(order))
       expect(page).to have_content(order.accessories.first.order_subtotal(order))
+    end
+  end
+
+  describe '' do
+    it '' do
     end
   end
 end

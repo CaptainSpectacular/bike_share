@@ -32,19 +32,6 @@ class OrdersController < ApplicationController
 
   private
     def order_params
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
       params.require(:order).permit(:status, :total)
-=======
-
->>>>>>> current order behavior
-=======
-      content_keys = params[:order][:contents].keys
-      params.require(:order).permit(:status, contents: content_keys)
->>>>>>> can add order with one accessory
-=======
-      params.require(:order).permit(:status, :total)
->>>>>>> accessory order_quantity and order_subtotal methods
     end
 end

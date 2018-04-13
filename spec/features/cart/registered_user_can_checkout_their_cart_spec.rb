@@ -13,10 +13,12 @@ describe 'As a registered user' do
       click_on 'Add to Cart'
       visit '/cart'
 
-      expect(page).to have_content("Cart: 1")
+      within('li.cart') do
+        expect(page).to have_content("1")
+      end
       expect(page).to have_content("Quantity: 1")
-      expect(page).to have_content("Subtotal: 9.99")
-      expect(page).to have_content("Total: 9.99")
+      expect(page).to have_content("Subtotal: $9.99")
+      expect(page).to have_content("Total: $9.99")
 
     end
 
