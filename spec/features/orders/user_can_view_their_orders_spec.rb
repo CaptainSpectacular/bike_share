@@ -11,7 +11,11 @@ describe 'As a registered user' do
 
       click_on 'Add to Cart'
       click_on 'Checkout'
-expect(current_path).to eq(dashboard_path(user))
+
+      fill_in 'order[purchaser_name]', with: 'Megan Marie'
+      fill_in 'order[address]', with: 'JK Street'
+      click_on 'Create Order'
+save_and_open_page
       click_on '1'
 
       order = Order.last
