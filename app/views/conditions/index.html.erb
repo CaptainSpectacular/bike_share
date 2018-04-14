@@ -6,34 +6,35 @@
       <%= link_to "Create a New Condition", new_admin_condition_path %><br>
       <%= link_to "Create a New Trip", new_admin_trip_path %><br>
   <% end %>
+  <%= link_to "<< Back to Learning Dashboard", learn_dashboard_path %>
 </div>
-  <div class="accessory-display">
+<table class="trip-display">
+  <tr>
+    <th>Date</th>
+    <th>Max Temp</th>
+    <th>Mean Temp</th>
+    <th>Min Temp</th>
+    <th>Average Temp</th>
+    <th>Average Humidity</th>
+    <th>Average Visibility</th>
+    <th>Average Windspeed</th>
+    <th>Precipitation</th>
+  </tr>
   <% @conditions.each do |condition| %>
-    <div class="accessory-box">
-      <h3> Date: <%= link_to condition.date, condition_path(condition) %> </h3>
-
-      <p> Max Temp: <%= condition.max_temp %> </p>
-      <p>
-        Mean Temp: <%= condition.average_temp %>
-      </p>
-      <p>
-        Min Temp: <%= condition.min_temp %>
-      </p>
-      <p>
-        Mean Humidity: <%= condition.average_humidity %>
-      </p>
-      <p>
-        Mean Visibility: <%= condition.average_visibility %> miles
-      </p>
-      <p>
-        Mean Windspeed: <%= condition.average_windspeed %> mph
-      </p>
-      <p>
-        Precipitation: <%= condition.precipitation %> inches
-      </p>
-      <%= link_to 'Delete', admin_condition_path(condition), method: :delete, class: 'delete' if current_admin %>
-      <%= link_to 'Edit', edit_admin_condition_path(condition) if current_admin %>
-    </div>
+      <tr>
+        <td>Date: <%= link_to condition.date, condition_path(condition) %></td>
+        <td>Max Temp: <%= condition.max_temp %></td>
+        <td>Mean Temp: <%= condition.average_temp %></td>
+        <td>Min Temp: <%= condition.min_temp %></td>
+        <td>Mean Humidity: <%= condition.average_humidity %></td>
+        <td>Mean Visibility: <%= condition.average_visibility %></td>
+        <td>Mean Windspeed: <%= condition.average_windspeed %></td>
+        <td>Precipitation: <%= condition.precipitation %></td>
+        <% if current_admin %>
+          <td><%= link_to "Edit", edit_admin_condition_path(condition) %></td>
+          <td><%= link_to "Delete", admin_condition_path(condition), method: "delete", data: {confirm: "Are you sure you want to delete this condition?"} %></td>
+        <% end %>
+      </tr>
   <% end %>
-</div>
+</table>
 </html>

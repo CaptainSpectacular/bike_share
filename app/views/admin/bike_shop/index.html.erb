@@ -1,8 +1,16 @@
-<% @accessories.each do |accessory| %>
-  <%= accessory.title %>
-  <%= accessory.price %>
-  <img src="<%= accessory.image %>">
-  <%= link_to "Edit", edit_admin_accessory_path(accessory) %>
-  <%= link_to "Delete", admin_accessory_path(accessory), method: "delete" %>
-  <%= accessory.status %>
-<% end %>
+<div class="centered-text">
+  <h1>All Accessories</h1>
+  <%= link_to "<< Back To Admin Dashboard", admin_dashboard_path %>
+</div>
+<div class="accessory-display">
+  <% @accessories.each do |accessory| %>
+  <div class="accessory-box">
+    <%= accessory.title %>
+    <%= accessory.price %>
+    <img src="<%= accessory.image %>">
+    <%= link_to "Edit", edit_admin_accessory_path(accessory) %>
+    <%= link_to "Delete", admin_accessory_path(accessory), method: "delete" %>
+    <%= accessory.status %>
+  </div>
+  <% end %>
+</div>

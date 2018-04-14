@@ -1,25 +1,29 @@
-<%= @best_weather %>
+<html class="login">
+<h1 class="trip-header">Trips Dashboard</h1>
+<div class="centered-text">
+    <h1>Conditions</h1>
+  <%= link_to "<< Back to Learning Dashboard", learn_dashboard_path %><br>
+  Best Weather: <%= @best_weather %><br>
+  Worst Weather: <%= @worst_weather %><br>
+  Average Duration: <%= @avg_duration %><br>
+  Minimum Duration: <%= @min_duration %><br>
+  Maximum Duration: <%= @max_duration %><br>
 
-<%= @worst_weather %>
+  Trips by Month:
+  <% @trips_by_month.each do |month, trip_count| %>
+    <%= "#{month}: #{trip_count}" %>
+  <% end %><br>
 
-<%= @avg_duration %>
+  <%= "Most Popular Starting Station: #{@popular_starting_station}" %><br>
+  <%= "Most Popular Ending Station: #{@popular_ending_station}" %><br>
 
-<%= @min_duration %>
-<%= @max_duration %>
+  <%= "Most Popular Bike: #{@popular_bike[0]} with #{@popular_bike[1]} rides" %><br>
+  <%= "Least Popular Bike: #{@unpopular_bike[0]} with #{@unpopular_bike[1]} rides" %><br>
 
-<% @trips_by_month.each do |month, trip_count| %>
-  <%= "#{month}: #{trip_count}" %>
-<% end %>
+  Subscribers: <%= @subscriber_breakdown %><br>
+  Customers: <%= @customer_breakdown %> <br>
 
-<%= "Most Popular Starting Station: #{@popular_starting_station}" %>
-<%= "Most Popular Ending Station: #{@popular_ending_station}" %>
-
-<%= "Most Popular Bike: #{@popular_bike[0]} with #{@popular_bike[1]} rides" %> 
-<%= "Least Popular Bike: #{@unpopular_bike[0]} with #{@unpopular_bike[1]} rides" %> 
-
-<%= @subscriber_breakdown %>
-<%= @customer_breakdown %> 
-
-
-<%= @busy_date %>
-<%= @dead_date %>
+  Busiest Date: <%= @busy_date %><br>
+  Least Busy Day: <%= @dead_date %><br>
+</div>
+</html>

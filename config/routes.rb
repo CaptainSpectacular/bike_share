@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
 
+  get 'learn-dashboard', to: 'learn#index'
   get '/conditions-dashboard', to: 'conditions/dashboard#index'
   get '/trips-dashboard', to: 'trips/dashboard#index'
   get '/dashboard', to: 'users#show'
+
   get '/admin/dashboard', to: 'admin/dashboard#index'
   get '/admin/bike-shop', to: 'admin/bike_shop#index'
   get '/admin/bike-shop/new',to: 'admin/bike_shop#new'

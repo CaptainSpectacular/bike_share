@@ -1,11 +1,20 @@
-<%= @order.id %>
+<html class="home">
+  <h1 class="centered-text">Order: <%= @order.id %></h1>
+    <div class="hero-text accessory-box">
+    <% if @order.status == "ordered" %>
+    <% elsif @order.status == "paid" %>
+    <% elsif @order.status == "canceled" %>
+    <% else %>
+    <% end %>
+    Total: <%= @order.total %><br>
+    Status: <%= @order.status %><br>
+    Date: <%= @order.date_time %><br>
 
-<%= @order.total %>
-<%= @order.status %>
-<%= @order.date_time %>
-
-<% @order.accessories.each do |accessory| %>
-  <%= accessory.title %>
-  <%= accessory.order_quantity(@order) %>
-  <%= accessory.order_subtotal(@order) %>
-<% end %>
+    Accessories Ordered:<br>
+    <% @order.accessories.each do |accessory| %>
+      Title: <%= accessory.title %>
+      Quantity: <%= accessory.order_quantity(@order) %>
+      Subtotal: <%= accessory.order_subtotal(@order) %><br>
+    <% end %>
+    </div>
+</html>
