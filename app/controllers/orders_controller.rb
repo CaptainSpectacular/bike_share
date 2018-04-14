@@ -2,12 +2,14 @@ class OrdersController < ApplicationController
   before_action :require_user
 
   def new
+    @order = Order.new
+    @order.date_time = DateTime.now
+    @order.user_id = current_user.id
+    @order.status = "Ordered"
   end
 
   def create
     order = Order.new(order_params)
-    order.date_time = DateTime.now
-    order.user_id = current_user.id
     if order.save
       session[:cart].each do |order_object|
         OrderAccessory.create!(accessory_id: order_object[0], order_id: order.id, quantity: order_object[1])
@@ -39,6 +41,6 @@ class OrdersController < ApplicationController
     end
 
     def require_user
-      require file: '/public/404' unless current_user
+      render file: '/public/404' unless current_user || current_admin
     end
 end

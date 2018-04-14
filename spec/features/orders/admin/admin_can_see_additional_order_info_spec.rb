@@ -1,10 +1,13 @@
 require 'rails_helper'
 
-describe 'As a registered user' do
-  describe 'when I visit /dashboard and click one of my orders' do
-    it 'shows information about that order, including total and status' do
+describe 'As an admin' do
+  describe 'when I visit an individual order page' do
+    it 'shows information about that order, including purchaser info' do
+      admin = create(:admin)
       user = create(:user)
-      order = user.orders.create(:order)
+      order = user.orders.create(status: "ordered", date_time: Time.now, total: 9, user_id: user.id)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_admin).and_return(admin)
 
       visit order_path(order)
 
@@ -16,11 +19,6 @@ describe 'As a registered user' do
       expect(page).to have_content(order.accessories.first.order_subtotal(order))
       expect(page).to have_content(order.total)
       expect(page).to have_content(order.status)
-    end
-  end
-
-  describe '' do
-    it '' do
     end
   end
 end
