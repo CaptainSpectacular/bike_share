@@ -27,6 +27,7 @@ describe 'As a visitor' do
       click_on 'Logout'
 
       visit dashboard_path
+      save_and_open_page
       expect(page).to_not have_content("#{order.total}")
       expect(page).to have_content('The page you were looking for doesn\'t exist.')
     end

@@ -12,7 +12,7 @@
 
     Accessories Ordered:<br>
     <% @order.accessories.each do |accessory| %>
-      Title: <%= accessory.title %>
+      Title: <%= link_to accessory.title, accessory_path(accessory) %>
       Quantity: <%= accessory.order_quantity(@order) %>
       Subtotal: <%= accessory.order_subtotal(@order) %><br>
     <% end %>
