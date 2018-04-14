@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :require_user
+
   def new
   end
 
@@ -34,5 +36,9 @@ class OrdersController < ApplicationController
   private
     def order_params
       params.require(:order).permit(:status, :total)
+    end
+
+    def require_user
+      require file: '/public/404' unless current_user
     end
 end
