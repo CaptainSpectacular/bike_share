@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
       session[:cart].each do |order_object|
         OrderAccessory.create!(accessory_id: order_object[0], order_id: order.id, quantity: order_object[1])
       end
+      session[:cart] = nil
       flash[:success] = "Successfully submitted your order totalling $#{order.total}"
       redirect_to dashboard_path
     else

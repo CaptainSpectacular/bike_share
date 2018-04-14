@@ -266,3 +266,25 @@ ul {
   color: $flash-danger;
   text-align: center;
 }
+
+.learn-dashboard-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid black;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.cart-display {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.learn-background {
+  background-image: url(https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pdgm.com%2Fgetmedia%2F49986e29-2fba-4629-8a09-591205b91ed4%2FLibrary_1400_800.jpg.aspx&f=1);
+  background-size: cover;
+}

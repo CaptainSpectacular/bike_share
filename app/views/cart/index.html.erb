@@ -1,21 +1,23 @@
-<div class="centered-text">
-  <h1>Your Cart<br>
-  Cart Total: $<%= @cart.total %></h1>
-  <%= link_to "Back to Shop", bike_shop_path %>
-</div>
-<div class="accessory-display">
-<% @accessories.each do |accessory| %>
-  <div class="accessory-<%= accessory.id %> accessory-box">
-    <%= accessory.title %>
-    <%= accessory.price %>
-    <img src="<%= accessory.image %>">
-    Quantity: <%= @cart.accessory_count(accessory.id.to_s) %>
-    Subtotal: $<%= @cart.accessory_count(accessory.id.to_s) * accessory.price %>
-    <%= button_to "Add 1", cart_path(accessory_id: accessory.id, value: "add") %>
-    <%= button_to "Subtract 1", cart_path(accessory_id: accessory.id, value: "subtract") %>
-    <%= button_to "Remove", cart_path(accessory_id: accessory.id), method: "delete", data: {confirm: "Are you sure you want to remove this from the cart?"}%>
+<html class="login">
+  <div class="centered-text">
+    <h1>Your Cart<br>
+    Cart Total: $<%= @cart.total %></h1>
+    <%= link_to "<< Back to Shop", bike_shop_path %>
   </div>
-<% end %>
-Cart Total: <%= @cart.total %>
+    <div class="cart-display">
+    <% @accessories.each do |accessory| %>
+      <div class="accessory-<%= accessory.id %> accessory-box">
+        <%= accessory.title %>
+        <%= accessory.price %>
+        <img src="<%= accessory.image %>">
+        Quantity: <%= @cart.accessory_count(accessory.id.to_s) %>
+        Subtotal: $<%= @cart.accessory_count(accessory.id.to_s) * accessory.price %>
+        <%= button_to "Add 1", cart_path(accessory_id: accessory.id, value: "add") %>
+        <%= button_to "Subtract 1", cart_path(accessory_id: accessory.id, value: "subtract") %>
+        <%= button_to "Remove", cart_path(accessory_id: accessory.id), method: "delete", data: {confirm: "Are you sure you want to remove this from the cart?"}%>
+      </div>
+    <% end %>
+    Cart Total: <%= @cart.total %>
 
-<%= link_to 'Checkout', orders_path(order: {status: 'ordered', total: @cart.total}), method: :post %>
+    <%= link_to 'Checkout', orders_path(order: {status: 'ordered', total: @cart.total}), method: :post %>
+  <html>
