@@ -3,13 +3,11 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @order.date_time = DateTime.now
-    @order.user_id = current_user.id
-    @order.status = "Ordered"
   end
 
   def create
     order = Order.new(order_params)
+    order.date_time = DateTime.now
     if order.save
       session[:cart].each do |order_object|
         OrderAccessory.create!(accessory_id: order_object[0], order_id: order.id, quantity: order_object[1])
@@ -37,7 +35,7 @@ class OrdersController < ApplicationController
 
   private
     def order_params
-      params.require(:order).permit(:status, :total)
+      params.require(:order).permit(:status, :total, :purchaser_name, :address, :user_id)
     end
 
     def require_user

@@ -15,7 +15,7 @@ describe 'As a registered user' do
       fill_in 'order[purchaser_name]', with: 'Megan Marie'
       fill_in 'order[address]', with: 'JK Street'
       click_on 'Create Order'
-save_and_open_page
+
       click_on '1'
 
       order = Order.last

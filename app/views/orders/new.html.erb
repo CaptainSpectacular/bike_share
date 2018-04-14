@@ -5,8 +5,8 @@
   <%= f.label "Address" %>
   <%= f.text_field :address %>
 
-  <%= hidden_field(:user_id, current_user.id) %>
-  <%=  %>
+  <%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
+  <%= f.hidden_field :status, :value => "Ordered" %>
 
   <%= f.submit %>
 <% end %>
