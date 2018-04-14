@@ -9,6 +9,7 @@ RSpec.describe Station, type: :model do
   end
 
   describe 'relationships' do
-    it{should respond_to :trips}
+    it{should respond_to :start_trips}
+    it{should respond_to :end_trips}
   end
 end

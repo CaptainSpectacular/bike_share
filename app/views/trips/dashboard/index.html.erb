@@ -1,3 +1,25 @@
 <%= @best_weather %>
 
 <%= @worst_weather %>
+
+<%= @avg_duration %>
+
+<%= @min_duration %>
+<%= @max_duration %>
+
+<% @trips_by_month.each do |month, trip_count| %>
+  <%= "#{month}: #{trip_count}" %>
+<% end %>
+
+<%= "Most Popular Starting Station: #{@popular_starting_station}" %>
+<%= "Most Popular Ending Station: #{@popular_ending_station}" %>
+
+<%= "Most Popular Bike: #{@popular_bike[0]} with #{@popular_bike[1]} rides" %> 
+<%= "Least Popular Bike: #{@unpopular_bike[0]} with #{@unpopular_bike[1]} rides" %> 
+
+<%= @subscriber_breakdown %>
+<%= @customer_breakdown %> 
+
+
+<%= @busy_date %>
+<%= @dead_date %>
