@@ -47,13 +47,17 @@ describe 'As an admin' do
       allow_any_instance_of(ApplicationController).to receive(:current_admin).and_return(admin)
 
       visit admin_dashboard_path
-      click_on 'Paid orders: 1'
+      click_on 'Paid orders'
 
       expect(page).to have_content(paid_order.date_time)
       expect(page).to have_content(paid_order.purchaser_name)
       expect(page).to have_content(paid_order.total)
+
+      click_on 'In progress orders'
+
+      expect(page).to have_content(orderered_order.date_time)
+      expect(page).to have_content(orderered_order.purchaser_name)
+      expect(page).to have_content(orderered_order.total)
     end
-
-
   end
 end

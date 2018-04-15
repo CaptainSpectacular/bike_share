@@ -11,7 +11,7 @@ FactoryBot.define do
   end
   factory :orderered_order, class: Order do
     status "Ordered"
-    date_time Time.now
+    date_time Time.now + 40000
     user_id 1
   end
   factory :cancelled_order, class: Order do

@@ -12,4 +12,8 @@ class Order < ApplicationRecord
   def self.count_by_status(status)
     where(status: status).size
   end
+
+  def self.by_status(status)
+    where(status: status)
+  end
 end
