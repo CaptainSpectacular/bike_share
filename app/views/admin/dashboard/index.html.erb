@@ -26,4 +26,20 @@
   </div>
 </div>
 </div>
+<h3>All Orders</h3>
+
+<h3>Orders by status</h3>
+<table>
+  <tr>
+    <th>In progress orders: <%= @orders.count_by_status('Ordered') %></th>
+    <th>Paid orders: <%= @orders.count_by_status('Paid') %></th>
+    <th>Cancelled orders: <%= @orders.count_by_status('Cancelled') %></th>
+    <th>Completed orders: <%= @orders.count_by_status('Completed') %></th>
+  </tr>
+</table>
+<ul>
+  <% @orders.each do |order| %>
+  <li><%= link_to "Order #{order.id}", order_path(order) %></li>
+  <% end %>
+</ul>
 </html>

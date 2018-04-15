@@ -9,4 +9,7 @@ class Order < ApplicationRecord
     accessories.sum("accessories.price * order_accessories.quantity")
   end
 
+  def self.count_by_status(status)
+    where(status: status).size
+  end
 end

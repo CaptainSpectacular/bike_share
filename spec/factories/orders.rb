@@ -4,22 +4,22 @@ FactoryBot.define do
     date_time Time.now
     user_id 1
   end
-  factory :paid_order do
+  factory :paid_order, class: Order do
     status "Paid"
     date_time Time.now
     user_id 1
   end
-  factory :orderered_order do
+  factory :orderered_order, class: Order do
     status "Ordered"
     date_time Time.now
     user_id 1
   end
-  factory :cancelled_order do
+  factory :cancelled_order, class: Order do
     status "Cancelled"
     date_time Time.now
     user_id 1
   end
-  factory :completed_order do
+  factory :completed_order, class: Order do
     status "Completed"
     date_time Time.now
     user_id 1
