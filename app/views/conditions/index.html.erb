@@ -26,9 +26,9 @@
         <td><%= condition.average_temp %></td>
         <td><%= condition.min_temp %></td>
         <td><%= condition.average_humidity %></td>
-        <td><%= condition.average_visibility %></td>
-        <td><%= condition.average_windspeed %></td>
-        <td><%= condition.precipitation %></td>
+        <td><%= condition.average_visibility %> (Miles)</td>
+        <td><%= condition.average_windspeed %> (MPH)</td>
+        <td><%= condition.precipitation %> (Inches)</td>
         <% if current_admin %>
           <td><%= link_to "Edit", edit_admin_condition_path(condition) %></td>
           <td><%= link_to "Delete", admin_condition_path(condition), method: "delete", data: {confirm: "Are you sure you want to delete this condition?"}, class: 'delete' %></td>

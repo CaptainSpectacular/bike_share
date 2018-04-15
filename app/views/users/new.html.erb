@@ -3,7 +3,7 @@
       <h1>Glad you could join us!</h1>
         <%= form_for @user do |f| %>
           <legend><span class="number">1</span><%= label_tag :username %></legend>
-          <%= f.text_field :username %>
+          <%= f.text_field :username %><br>
 
           <legend><span class="number">2</span><%= label_tag :password %></legend>
           <%= f.password_field :password %>

@@ -15,7 +15,7 @@
     <%= render 'partials/navigation' %>
     <% flash.each do |message_type, message| %>
       <% if message_type == "success" %>
-        <div class="success"><%= message %></div>
+        <div class="success"><%= sanitize(message) %></div>
       <% else %>
         <div class="danger"><%= message %></div>
       <% end %>

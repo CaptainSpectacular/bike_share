@@ -37,7 +37,8 @@ end
 
 CSV.foreach('./db/fixtures/accessories.csv', OPTIONS) do |row|
   Accessory.create(title: row[:title],
+                  description: row[:description],
                   price: row[:price],
                   image: row[:image],
-                  status: row[:status] )
+                  status: row[:status])
 end
