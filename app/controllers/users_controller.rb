@@ -22,8 +22,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id]) if current_admin
+  end
+
+  def update
+    binding.pry
+    @user.update(user_params)
+    if @user.save
+      flash[:success] = "Your account was successfully updated, #{current_user.username}"
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   private
   def user_params
-    params.require(:user).permit(:username, :password, :role)
+    params.require(:user).permit(:username, :password, :role, :password_confirmation)
   end
 end

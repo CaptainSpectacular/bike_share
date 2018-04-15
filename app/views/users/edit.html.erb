@@ -1,0 +1,17 @@
+<html class="login">
+    <div class="login-box hero-text">
+      <%= form_for @user do |f| %>
+        <legend><span class="number">1</span><%= label_tag :username %></legend>
+        <%= f.text_field :username %>
+
+        <legend><span class="number">2</span><%= label_tag :password %></legend>
+        <%= f.password_field :password %>
+
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+        <br>
+
+        <%= f.submit "Change account" %>
+      <% end %>
+    </div>
+</html>
