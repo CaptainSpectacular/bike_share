@@ -7,10 +7,7 @@ class Accessory < ApplicationRecord
   has_many :orders, through: :order_accessories
 
   def order_quantity(order)
-    order_accessories
-    .where("order_accessories.order_id = #{order.id}")
-    .take
-    .quantity
+    order_accessories.find_by(order: order.id).quantity
   end
 
   def order_subtotal(order)

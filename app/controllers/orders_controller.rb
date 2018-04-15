@@ -1,11 +1,13 @@
 class OrdersController < ApplicationController
+  before_action :require_user
+
   def new
+    @order = Order.new
   end
 
   def create
     order = Order.new(order_params)
     order.date_time = DateTime.now
-    order.user_id = current_user.id
     if order.save
       session[:cart].each do |order_object|
         OrderAccessory.create!(accessory_id: order_object[0], order_id: order.id, quantity: order_object[1])
@@ -23,9 +25,16 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    if (@order.user != current_user) && !current_admin
+      render file: '/public/404'
+    end
   end
 
   def update
+    @order = Order.find(params[:id])
+    @order.update(status: params[:status])
+    @order.update(date_time: DateTime.now)
+    redirect_to admin_dashboard_path
   end
 
   def destroy
@@ -33,6 +42,10 @@ class OrdersController < ApplicationController
 
   private
     def order_params
-      params.require(:order).permit(:status, :total)
+      params.require(:order).permit(:status, :total, :purchaser_name, :address, :user_id)
+    end
+
+    def require_user
+      render file: '/public/404' unless current_user || current_admin
     end
 end

@@ -26,4 +26,59 @@
   </div>
 </div>
 </div>
+<h3>All Orders</h3>
+
+<h3>Orders by status</h3>
+<table>
+  <tr>
+    <th><%= link_to 'Paid orders', admin_dashboard_path(:sort_status => 'Paid') %>: <%= @orders.count_by_status('Paid') %></th>
+    <th><%= link_to 'In progress orders', admin_dashboard_path(:sort_status => 'Ordered') %>: <%= @orders.count_by_status('Ordered') %></th>
+    <th><%= link_to 'Cancelled orders', admin_dashboard_path(:sort_status => 'Cancelled') %>: <%= @orders.count_by_status('Cancelled') %></th>
+    <th><%= link_to 'Completed orders', admin_dashboard_path(:sort_status => 'Completed') %>: <%= @orders.count_by_status('Completed') %></th>
+</table>
+<% if @sorted_orders %>
+  <table>
+    <tr>
+      <th>Order Date</th>
+      <th>Purchaser</th>
+      <th>Total</th>
+    </tr>
+    <% @sorted_orders.each do |order| %>
+    <tr>
+      <td><%= order.date_time %></td>
+      <td><%= order.purchaser_name %></td>
+      <td><%= order.total %></td>
+    </tr>
+    <% end %>
+</table>
+<% end %>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Status</th>
+    <th>Purchaser</th>
+    <th>Total</th>
+    <th>Options</th>
+  </tr>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= link_to "Order #{order.id}", order_path(order) %></li></td>
+      <td><%= order.status %></td>
+      <td><%= order.purchaser_name %></td>
+      <td><%= order.total %></td>
+      <td id="order-<%= order.id %>-options">
+        <% if order.status == 'Paid' %>
+            <%= button_to 'Mark as Completed', order_path(order, status: 'Completed'), method: :patch %>
+            <%= button_to 'Cancel', order_path(order, status: 'Cancelled'), method: :patch %>
+          </td>
+        <% elsif order.status  == 'Ordered' %>
+            <%= button_to 'Mark as Paid', order_path(order, status: 'Paid'), method: :patch %>
+            <%= button_to 'Cancel', order_path(order, status: 'Cancelled'), method: :patch %>
+          </td>
+        <% else %>
+          </td>
+        <% end %>
+  <% end %>
+</table>
+</ul>
 </html>

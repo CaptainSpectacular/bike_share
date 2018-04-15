@@ -34,6 +34,10 @@ describe 'As a registered user' do
       visit '/cart'
       click_on 'Checkout'
 
+      fill_in 'order[purchaser_name]', with: 'Megan Marie'
+      fill_in 'order[address]', with: 'JK Street'
+      click_on 'Create Order'
+
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content('Successfully submitted your order totalling $9.99')
     end
