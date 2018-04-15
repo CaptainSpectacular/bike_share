@@ -31,7 +31,7 @@
         <td><%= condition.precipitation %></td>
         <% if current_admin %>
           <td><%= link_to "Edit", edit_admin_condition_path(condition) %></td>
-          <td><%= link_to "Delete", admin_condition_path(condition), method: "delete", data: {confirm: "Are you sure you want to delete this condition?"} %></td>
+          <td><%= link_to "Delete", admin_condition_path(condition), method: "delete", data: {confirm: "Are you sure you want to delete this condition?"}, class: 'delete' %></td>
         <% end %>
       </tr>
   <% end %>

@@ -46,7 +46,7 @@ describe 'as an admin' do
       expect(page).to_not have_content(condition.precipitation)
       expect(page).to_not have_content(condition.average_windspeed)
       expect(page).to_not have_content(condition.average_visibility)
-      expect(page).to_not have_content(condition.average_humidity) 
+      expect(page).to_not have_content(condition.average_humidity)
     end
   end
 end
