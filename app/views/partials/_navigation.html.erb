@@ -17,8 +17,12 @@
     <li><%= link_to "Conditions", conditions_path %> | </li>
     <li><%= link_to "Trips", trips_path %> | </li>
     <li><%= link_to "Shop", bike_shop_path %></li>
-    <li class="cart"><% if current_user %>
+    <li class="cart"><% if current_user && current_admin %>
+                          Logged in as ADMIN <%= current_user.username%>
+                      <% elsif current_user %>
                           Logged in as <%= current_user.username%>
+                      <% else %>
+
                       <% end %>
     <img src="http://cdn.onlinewebfonts.com/svg/img_290616.png" style="height: 18px; margin: 5px;"><%= link_to @cart.total_accessory_count, cart_path %></li>
   </ul>

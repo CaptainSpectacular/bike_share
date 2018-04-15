@@ -1,13 +1,10 @@
 <html class="home">
   <h1 class="centered-text">Order: <%= @order.id %></h1>
     <div class="hero-text accessory-box">
-    <% if @order.status == "ordered" %>
-    <% elsif @order.status == "paid" %>
-    <% elsif @order.status == "canceled" %>
-    <% else %>
-    <% end %>
     Total: <%= @order.total %><br>
     Status: <%= @order.status %><br> on <%= @order.date_time %><br>
+    Purchaser: <%= @order.purchaser_name %><br>
+    Order Address: <%= @order.address %><br>
 
     Accessories Ordered:<br>
     <% @order.accessories.each do |accessory| %>

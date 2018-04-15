@@ -1,7 +1,5 @@
 class CartController < ApplicationController
   include ActionView::Helpers::TextHelper
-  include ActionView::Helpers::UrlHelper
-  include ActionView::Helpers::CaptureHelper
 
   def index
     @accessories = @cart.contents.map do |accessory_id, count|

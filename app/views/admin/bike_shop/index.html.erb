@@ -6,6 +6,7 @@
   <% @accessories.each do |accessory| %>
   <div class="accessory-box">
     <%= accessory.title %>
+    <%= accessory.description %>
     <%= accessory.price %>
     <img src="<%= accessory.image %>">
     <%= link_to "Edit", edit_admin_accessory_path(accessory) %>

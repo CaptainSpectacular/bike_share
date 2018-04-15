@@ -1,5 +1,5 @@
 class Accessory < ApplicationRecord
-  validates_presence_of :title, :price, :image
+  validates_presence_of :title, :description, :price
   validates_uniqueness_of :title
   validates_numericality_of :price, greater_than: 0
 
