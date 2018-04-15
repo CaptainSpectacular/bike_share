@@ -30,6 +30,27 @@ describe 'As a registered user' do
       expect(page).to have_content(order.accessories.first.order_subtotal(order))
     end
 
+    it 'does not show me admin info, such as purchaser name and address' do
+      user = create(:user)
+      accessory = create(:accessory)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit bike_shop_path
+
+      click_on 'Add to Cart'
+      click_on 'Checkout'
+
+      fill_in 'order[purchaser_name]', with: 'Megan Marie'
+      fill_in 'order[address]', with: 'JK Street'
+      click_on 'Create Order'
+
+      order = Order.last
+      visit order_path(order)
+
+      expect(page).to_not have_content(order.purchaser_name)
+      expect(page).to_not have_content(order.address)
+    end
+
     it 'does not show me another user\'s orders' do
       user = create(:user)
       user2 = create(:user2)
