@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
+    if current_user || current_admin
+      @user = current_user
+    else
+      render file: '/public/404'
+    end
   end
 
   def new
@@ -22,5 +26,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password, :role)
   end
-
 end

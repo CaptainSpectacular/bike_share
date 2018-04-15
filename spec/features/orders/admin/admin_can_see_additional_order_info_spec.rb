@@ -12,7 +12,7 @@ describe 'As an admin' do
       allow_any_instance_of(ApplicationController).to receive(:current_admin).and_return(admin)
 
       visit order_path(order)
-save_and_open_page
+
       expect(page).to have_content(order.date_time)
       expect(page).to have_content(order.purchaser_name)
       expect(page).to have_content(order.address)
