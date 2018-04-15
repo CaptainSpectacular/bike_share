@@ -26,7 +26,7 @@ describe 'user visits an accessory show page' do
     expect(page).to have_content(accessory.status)
     expect(page).to have_css("img[src*='http://my_string.com/something.png']")
 
-    expect(page).to have_content("Sorry, Accessory is Retired!")
+    expect(page).to have_content("Accessory Retired!")
     expect(page).to_not have_content("Add to Cart")
   end
 end

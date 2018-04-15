@@ -30,7 +30,7 @@ class CartController < ApplicationController
     @cart.delete_accessory(@accessory)
     session[:cart] = @cart.contents
 
-    flash[:success] = "Successfully removed #{view_context.link_to(@accessory.title, @accessory)}.".html_safe
+    flash[:success] = "Successfully removed #{view_context.link_to(@accessory.title, @accessory)} from your cart.".html_safe
     redirect_to '/cart'
   end
 

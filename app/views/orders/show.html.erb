@@ -3,8 +3,10 @@
     <div class="hero-text accessory-box">
     Total: <%= @order.total %><br>
     Status: <%= @order.status %><br> on <%= @order.date_time %><br>
-    Purchaser: <%= @order.purchaser_name %><br>
-    Order Address: <%= @order.address %><br>
+    <% if current_admin %>
+      Purchaser: <%= @order.purchaser_name %><br>
+      Order Address: <%= @order.address %><br>
+    <% end %>
 
     Accessories Ordered:<br>
     <% @order.accessories.each do |accessory| %>
