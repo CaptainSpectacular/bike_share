@@ -64,5 +64,19 @@ describe 'As a registered user' do
       expect(page).to have_content("The page you were looking for doesn't exist.")
       expect(page).to_not have_content(order.status)
     end
+
+    it 'shows me a status timestamp if my order was completed or cancelled' do
+      admin = create(:admin)
+      user = create(:user)
+      paid_order = user.orders.create!(attributes_for(:paid_order))
+
+      allow_any_instance_of(ApplicationController).to receive(:current_admin).and_return(admin)
+      visit admin_dashboard_path
+      click_on 'Mark as Completed'
+
+      visit order_path(paid_order)
+
+      expect(page).to have_content("Completed on #{DateTime.now.strftime("%Y-%m-%d")}")
+    end
   end
 end

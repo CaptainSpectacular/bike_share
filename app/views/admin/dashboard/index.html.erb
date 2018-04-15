@@ -66,17 +66,18 @@
       <td><%= order.status %></td>
       <td><%= order.purchaser_name %></td>
       <td><%= order.total %></td>
-      <td id="order-#{order.id}-option"><% if order.status == 'Paid' %>
-            <td><%= button_to 'Mark as Completed', order_path(order, status: 'Completed'), method: :patch %>
-              <%= button_to 'Cancel', order_path(order, status: 'Cancelled'), method: :patch %>
-            </td>
-          <% elsif order.status  == 'Ordered' %>
-            <td><%= link_to 'Mark as Paid', order_path(order, status: 'Paid'), method: :patch %></td>
-            <td><%= link_to 'Cancel', order_path(order, status: 'Cancelled'), method: :patch %></td>
-          <% else %>
-            <td></td>
-          <% end %>
-      </td>
+      <td id="order-<%= order.id %>-options">
+        <% if order.status == 'Paid' %>
+            <%= button_to 'Mark as Completed', order_path(order, status: 'Completed'), method: :patch %>
+            <%= button_to 'Cancel', order_path(order, status: 'Cancelled'), method: :patch %>
+          </td>
+        <% elsif order.status  == 'Ordered' %>
+            <%= button_to 'Mark as Paid', order_path(order, status: 'Paid'), method: :patch %>
+            <%= button_to 'Cancel', order_path(order, status: 'Cancelled'), method: :patch %>
+          </td>
+        <% else %>
+          </td>
+        <% end %>
   <% end %>
 </table>
 </ul>

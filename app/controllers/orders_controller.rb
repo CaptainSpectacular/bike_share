@@ -33,6 +33,7 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(status: params[:status])
+    @order.update(date_time: DateTime.now)
     redirect_to admin_dashboard_path
   end
 

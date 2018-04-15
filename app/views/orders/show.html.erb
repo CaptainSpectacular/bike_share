@@ -7,8 +7,7 @@
     <% else %>
     <% end %>
     Total: <%= @order.total %><br>
-    Status: <%= @order.status %><br>
-    Date: <%= @order.date_time %><br>
+    Status: <%= @order.status %><br> on <%= @order.date_time %><br>
 
     Accessories Ordered:<br>
     <% @order.accessories.each do |accessory| %>
