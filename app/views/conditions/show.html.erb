@@ -1,5 +1,8 @@
 <html class="condition-background">
-<h3 class="centered-text"> Welcome to <%= @condition.date %>'s Information </h3>
+<div class="centered-text">
+  <h3> Welcome to <%= @condition.date %>'s Information </h3>
+  <%= link_to "<< Back to All Conditions", conditions_path %>
+</div>
 <table class="trip-display">
   <tr>
     <th>Date</th>

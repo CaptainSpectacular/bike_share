@@ -27,9 +27,9 @@ class Cart
   end
 
   def total
-    @contents.map do |accessory_id, count|
+    "%.2f" % @contents.map do |accessory_id, count|
       Accessory.find(accessory_id).price.to_f * count
-    end.sum.round(2)
+    end.sum
   end
 
 end

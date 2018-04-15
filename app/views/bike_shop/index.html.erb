@@ -9,7 +9,7 @@
     <% if accessory.status == "active" %>
       <%= button_to "Add to Cart", cart_path(accessory_id: accessory.id, value: "add") %>
     <% else %>
-      <p>Sorry, Accessory is Retired!</p>
+      <p>Accessory Retired!</p>
     <% end %>
   </div>
   <% end %>
