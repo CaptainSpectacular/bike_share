@@ -37,7 +37,7 @@ module Admin
 
     def destroy
       @trip.delete
-      flash[:success] = 'Trip successfully deleted.'
+      flash[:success] = "Your trip from #{@trip.start_date} was deleted!"
       redirect_to trips_path
     end
 
