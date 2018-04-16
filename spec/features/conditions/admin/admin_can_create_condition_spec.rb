@@ -19,7 +19,7 @@ describe 'an admin' do
       click_on 'Create Condition'
 
       expect(current_path).to eq(condition_path(Condition.last))
-      expect(page).to have_content('Condition successfully created.')
+      expect(page).to have_content('2018-12-02 was created!')
     end
 
     it 'gets an error by not filling in information' do

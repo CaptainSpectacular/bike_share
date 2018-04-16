@@ -22,7 +22,7 @@ describe 'an admin' do
       expect(current_path).to eq(condition_path(condition))
       expect(page).to have_content('5.0')
       expect(page).to have_content('2018-12-02')
-      expect(page).to have_content('Condition successfully updated.')
+      expect(page).to have_content('2018-12-02 was updated!')
     end
   end
 end

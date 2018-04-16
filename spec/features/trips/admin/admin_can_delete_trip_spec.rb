@@ -14,11 +14,9 @@ describe 'As an admin' do
 
       expect(current_path).to eq(trips_path)
 
-      expect(page).to have_content('Trip successfully deleted.')
+      expect(page).to have_content("#{trip1.start_date} was deleted!")
       expect(page).to_not have_content(trip1.duration)
-      expect(page).to_not have_content(trip1.start_date)
       expect(page).to_not have_content(trip1.start_station_name)
-      expect(page).to_not have_content(trip1.end_date)
       expect(page).to_not have_content(trip1.end_station_name)
       expect(page).to_not have_content(trip1.bike_id)
       expect(page).to_not have_content(trip1.subscription_type)
@@ -44,8 +42,8 @@ describe 'As an admin' do
 
       click_on 'Delete'
 
+      expect(page).to have_content("#{trip.start_date} was deleted!")
       expect(current_path).to eq(trips_path)
-      expect(page).to have_content('Trip successfully deleted.')
     end
   end
 end

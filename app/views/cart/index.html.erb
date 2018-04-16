@@ -7,7 +7,7 @@
     <div class="cart-display">
     <% @accessories.each do |accessory| %>
       <div class="accessory-<%= accessory.id %> accessory-box">
-        <%= accessory.title %>
+        <%= link_to accessory.title, accessory_path(accessory) %>
         <%= accessory.price %>
         <img src="<%= accessory.image %>">
         Quantity: <%= @cart.accessory_count(accessory.id.to_s) %>
