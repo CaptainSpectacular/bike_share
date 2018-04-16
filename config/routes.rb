@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'learn-dashboard', to: 'learn#index'
   get '/conditions-dashboard', to: 'conditions/dashboard#index'
   get '/trips-dashboard', to: 'trips/dashboard#index'
+  get '/stations-dashboard', to: 'stations/dashboard#index'
   get '/dashboard', to: 'users#show'
 
   get '/admin/dashboard', to: 'admin/dashboard#index'
