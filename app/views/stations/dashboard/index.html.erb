@@ -1,9 +1,25 @@
-<%= @total_stations %>
-<%= @average_bikes %>
-<%= @most_docks.name %>: <%= @min_docks %>
-<%= @least_docks.name %>: <%= @max_docks %>
-
-<%= @oldest.installation_date %>
-<%= @oldest.name %>
-<%= @newest.installation_date %>
-<%= @newest.name %>
+<html class="station-background">
+<div class="centered-text">
+  <h1 class="stations">Stations Dashboard</h1>
+  <% if current_admin %>
+      <%= link_to "Create a New Station", new_admin_station_path %><br>
+      <%= link_to "Create a New Condition", new_admin_condition_path %><br>
+      <%= link_to "Create a New Trip", new_admin_trip_path %><br>
+  <% end %>
+  <%= link_to "<< Back to Learning Dashboard", learn_dashboard_path %><br>
+  <br>
+  Total Stations: <%= @total_stations %><br>
+  Average Number of Bikes: <%= @average_bikes %><br>
+  Most Docks: <%= @most_docks.name %>: <%= @min_docks %><br>
+  Least Docks: <%= @least_docks.name %>: <%= @max_docks %><br>
+<br>
+  <strong>Oldest Station:</strong><br>
+    Installation Date: <%= @oldest.installation_date %><br>
+    Name:<%= @oldest.name %><br>
+<br>
+  <strong>Newest Station:</strong><br>
+    Installation Date: <%= @newest.installation_date %><br>
+    Name: <%= @newest.name %><br>
+  </tr>
+</div>
+</html>
