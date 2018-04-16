@@ -24,11 +24,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id]) if current_user.id == params[:id].to_i
-    binding.pry
   end
 
   def update
-    binding.pry
     @user.update(user_params)
     if @user.save
       flash[:success] = "Your account was successfully updated, #{current_user.username}"
