@@ -1,0 +1,23 @@
+<html class="admin-modification">
+  <div class="admin-login-box admin-hero-text">
+    <h1 class="centered-text">Edit an Accessory</h1>
+    <%= form_for [:admin, @accessory] do |f| %>
+      <legend><span class="number">1</span><%= f.label :title %></legend>
+      <%= f.text_field :title %>
+
+      <legend><span class="number">2</span><%= f.label :description %></legend>
+      <%= f.text_field :description %>
+
+      <legend><span class="number">3</span><%= f.label :price %></legend>
+      <%= f.number_field :price %>
+
+      <legend><span class="number">4</span><%= f.label :image %></legend>
+      <%= f.text_field :image %><br>
+
+      <legend><span class="number">5</span><%= f.label :status %></legend>
+      <%= f.select :status, ['active', 'inactive']%>
+
+      <%= f.submit %>
+    <% end %>
+  </div>
+</html>
