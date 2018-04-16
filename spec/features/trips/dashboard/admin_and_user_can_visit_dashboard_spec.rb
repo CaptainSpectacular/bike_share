@@ -89,8 +89,8 @@ describe 'an admin/registered user' do
 
       visit trips_dashboard_path
 
-      expect(page).to have_content(Trip.subscribtion_breakdown('Customer'))
-      expect(page).to have_content(Trip.subscribtion_breakdown('Subscriber'))
+      expect(page).to have_content("Number of Subscribers: 1 Percentage of Subscribers: 33%")
+      expect(page).to have_content("Customers: Number of Customers: 2 Percentage of Customers: 66%")
     end
 
     it 'see the most/least busy dates' do
@@ -101,8 +101,8 @@ describe 'an admin/registered user' do
 
       visit trips_dashboard_path
 
-      expect(page).to have_content(Trip.busy_date)
-      expect(page).to have_content(Trip.dead_date)
+      expect(page).to have_content("Busiest Date: Date: 2018-04-16 Number of Rides: 3")
+      expect(page).to have_content("Least Busy Day: Date: 2018-04-16 Number of Rides: 3")
     end
   end
 end
