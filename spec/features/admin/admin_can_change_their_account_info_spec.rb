@@ -9,8 +9,10 @@ describe 'As an admin' do
     fill_in 'user[username]', with: 'new_admin'
     fill_in 'user[password]', with: 'hello'
     fill_in 'user[password_confirmation]', with: 'hello'
+    click_on 'Change account'
 
     expect(page).to have_content('Logged in as new_admin')
+
   end
 
   it 'I am unable to modify another user\'s account' do

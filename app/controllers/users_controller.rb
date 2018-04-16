@@ -23,7 +23,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id]) if current_admin
+    @user = User.find(params[:id]) if current_user.id == params[:id].to_i
+    binding.pry
   end
 
   def update
