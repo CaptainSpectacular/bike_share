@@ -9,6 +9,7 @@ describe 'As an user' do
     fill_in 'user[username]', with: 'new_admin'
     fill_in 'user[password]', with: 'hello'
     fill_in 'user[password_confirmation]', with: 'hello'
+    expect(page).to_not have_field 'user[role]'
     click_on 'Change account'
 
     expect(page).to have_content('Logged in as ADMIN new_admin')

@@ -48,7 +48,6 @@ describe 'As an admin' do
 
       visit admin_dashboard_path
       click_on 'Paid orders'
-
       expect(page).to have_content(paid_order.date_time)
       expect(page).to have_content(paid_order.purchaser_name)
       expect(page).to have_content(paid_order.total)
