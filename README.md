@@ -14,11 +14,11 @@ Then, create your database:
 
 `rails db:setup`
 
-Now you should be able to visit localhost:3000 in your browser and see the homepage. It should look like this:
+Now you should be able to visit localhost:3000 in your browser and see the homepage. 
 
 ## Running the tests
 
-Use `rspec` to run all tests.
+Use `rspec` from the terminal to run all tests.
 
 ## Versions
 
