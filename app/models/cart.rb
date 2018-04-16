@@ -26,10 +26,15 @@ class Cart
     @contents.delete(accessory.id.to_s)
   end
 
+  def subtotal(accessory)
+    "%.2f" % (accessory_count(accessory.id.to_s) * accessory.price)
+  end
+
   def total
     "%.2f" % @contents.map do |accessory_id, count|
       Accessory.find(accessory_id).price.to_f * count
     end.sum
   end
+
 
 end

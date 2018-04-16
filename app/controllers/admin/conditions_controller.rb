@@ -8,7 +8,7 @@ module Admin
     def create
       @condition = Condition.new(condition_params)
       if @condition.save
-        flash[:success] = 'Condition successfully created.'
+        flash[:success] = "Your condition from #{@condition.date} was created!"
         redirect_to @condition
       else
         flash.now[:danger] = 'Something went wrong. Please try again.'
@@ -21,7 +21,7 @@ module Admin
 
     def update
       if @condition.update(condition_params)
-        flash[:success] = 'Condition successfully updated.'
+        flash[:success] = "Your condition from #{@condition.date} was updated!"
         redirect_to @condition
       else
         flash.now[:danger] = 'Something went wrong. Please try again.'
@@ -31,7 +31,7 @@ module Admin
 
     def destroy
       @condition.delete
-      flash[:success] = 'Condition successfully deleted.'
+      flash[:success] = "Your condition from #{@condition.date} was deleted!"
       redirect_to conditions_path
     end
 
@@ -50,7 +50,7 @@ module Admin
                                         :average_humidity,
                                         :precipitation,
                                         :average_windspeed)
-                                        
+
     end
   end
 end
