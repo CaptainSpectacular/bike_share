@@ -1,12 +1,15 @@
-<%= form_for @order do |f| %>
-  <%= f.label "Full Name" %>
-  <%= f.text_field :purchaser_name %>
+<html class="login">
+<div class="login-box hero-text">
+  <h1>You're almost there!</h1>
+  <%= form_for @order do |f| %>
+    <legend><span class="number">1</span><%= f.label "Full Name" %></legend>
+    <%= f.text_field :purchaser_name %><br>
 
-  <%= f.label "Address" %>
-  <%= f.text_field :address %>
+    <legend><span class="number">2</span><%= f.label "Address" %></legend>
+    <%= f.text_field :address %><br>
 
-  <%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
-  <%= f.hidden_field :status, :value => "Ordered" %>
+    <%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
+    <%= f.hidden_field :status, :value => "Ordered" %>
 
-  <%= f.submit %>
-<% end %>
+    <%= f.submit %>
+  <% end %>
