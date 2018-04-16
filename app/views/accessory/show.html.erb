@@ -4,7 +4,6 @@
     Price: $<%= @accessory.price %><br>
     Description: <%= @accessory.description %><br>
     Status: <%= @accessory.status %><br>
-    Category: <%= @accessory.category.title %>
     <img src="<%= @accessory.image %>">
     <% if current_admin %>
       <%= link_to "Edit", edit_admin_accessory_path(@accessory) %>

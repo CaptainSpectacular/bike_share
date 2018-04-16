@@ -8,7 +8,6 @@
     Title: <%= accessory.title %><br>
     Description: <%= accessory.description %><br>
     Price: <%= accessory.price %><br>
-    Category: <%= accessory.category.title %>
     <img src="<%= accessory.image %>"><br>
     <%= link_to "Edit", edit_admin_accessory_path(accessory) %>
     <%= link_to "Delete", admin_accessory_path(accessory), method: "delete" %>
