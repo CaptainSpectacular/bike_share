@@ -42,3 +42,7 @@ CSV.foreach('./db/fixtures/accessories.csv', OPTIONS) do |row|
                   image: row[:image],
                   status: row[:status])
 end
+
+CSV.foreach('./db/fixtures/categories.csv', OPTIONS) do |row|
+  Category.create(title: row[:title])
+end
