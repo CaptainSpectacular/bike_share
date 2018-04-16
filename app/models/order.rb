@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  validates_presence_of :date_time, :status, :user_id
+  validates_presence_of :date_time, :status, :user_id, :purchaser_name, :address
   belongs_to :user
 
   has_many :order_accessories

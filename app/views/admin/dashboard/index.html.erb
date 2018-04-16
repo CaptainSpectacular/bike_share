@@ -37,7 +37,7 @@
       <th><%= link_to 'In progress orders', admin_dashboard_path(:sort_status => 'Ordered') %>: <%= @orders.count_by_status('Ordered') %></th>
       <th><%= link_to 'Cancelled orders', admin_dashboard_path(:sort_status => 'Cancelled') %>: <%= @orders.count_by_status('Cancelled') %></th>
       <th><%= link_to 'Completed orders', admin_dashboard_path(:sort_status => 'Completed') %>: <%= @orders.count_by_status('Completed') %></th>
-  </table>
+  </table><br />
   <% if @sorted_orders %>
     <table>
       <tr>

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :correct_user, only: [:edit]
+
   def show
     if current_user || current_admin
       @user = current_user
@@ -23,12 +25,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id]) if current_user.id == params[:id].to_i
+    @user = User.find(params[:id])
   end
 
   def update
-    @user.update(user_params)
-    if @user.save
+    if current_user.update(user_params)
       flash[:success] = "Your account was successfully updated, #{current_user.username}"
       redirect_to root_path
     else

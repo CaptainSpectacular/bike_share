@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     current_user && current_user.admin?
   end
 
+  def correct_user
+    render file: '/public/404' if current_user.id != params[:id].to_i
+  end
+
   def registered_user
     current_user && current_user.registered?
   end
