@@ -83,4 +83,88 @@ RSpec.describe Station, type: :model do
       expect(Station.oldest).to eq(station)
     end
   end
+
+  describe 'instance methods' do
+    it '.started_rides' do
+      station = create(:station_1)
+      create(:trip, start_station_id: station.id)
+      create(:trip, start_station_id: station.id)
+      create(:trip, start_station_id: station.id)
+      create(:trip, start_station_id: station.id)
+      create(:trip, start_station_id: station.id)
+  
+      expect(station.ended_rides).to eq(5)
+    end
+
+    it '.ended_rides' do
+      station = create(:station_1)
+      create(:trip, end_station_id: station.id)
+      create(:trip, end_station_id: station.id)
+      create(:trip, end_station_id: station.id)
+      create(:trip, end_station_id: station.id)
+      create(:trip, end_station_id: station.id)
+      create(:trip, end_station_id: station.id)
+
+      expect(station.ended_rides).to eq(6)
+    end
+
+    it '.frequent_destination' do
+      station1 = create(:station_1)
+      station2 = create(:station_2)
+      station3 = create(:station_1)
+      create(:trip, start_station_id: station1.id, end_station_id: station2.id)
+      create(:trip, start_station_id: station1.id, end_station_id: station2.id)
+      create(:trip, start_station_id: station1.id, end_station_id: station2.id)
+      create(:trip, start_station_id: station1.id, end_station_id: station3.id)
+      create(:trip, start_station_id: station1.id, end_station_id: station3.id)
+
+      expect(station1.frequent_destination).to eq(station2)
+    end
+
+    it '.frequent_origin' do
+      station1 = create(:station_1)
+      station2 = create(:station_2)
+      station3 = create(:station_1)
+      create(:trip, start_station_id: station1.id, end_station_id: station2.id)
+      create(:trip, start_station_id: station1.id, end_station_id: station2.id)
+      create(:trip, start_station_id: station1.id, end_station_id: station2.id)
+      create(:trip, start_station_id: station3.id, end_station_id: station2.id)
+      create(:trip, start_station_id: station3.id, end_station_id: station2.id)
+
+      expect(station2.frequent_origin).to eq(station1)
+    end
+
+    it '.most_trips_started' do
+      station = create(:station_1)
+      create(:trip, start_station_id: station.id, start_date: Date.today - 1000000)
+      create(:trip, start_station_id: station.id, start_date: Date.today - 1000000)
+      create(:trip, start_station_id: station.id, start_date: Date.today - 1000000)
+      create(:trip, start_station_id: station.id, start_date: Date.today)
+      create(:trip, start_station_id: station.id, start_date: Date.today)  
+
+      expect(station.most_trips_started).to eq(Date.today - 1000000)
+    end
+
+    it '.most_used_zip' do
+      station = create(:station_1)
+      create(:trip, start_station_id: station.id, zip_code: 80221)
+      create(:trip, start_station_id: station.id, zip_code: 80221)
+      create(:trip, start_station_id: station.id, zip_code: 80221)
+      create(:trip, start_station_id: station.id, zip_code: 76482)
+      create(:trip, start_station_id: station.id, zip_code: 89283)  
+
+      expect(station.most_used_zip).to eq(80221)
+    end
+
+    it '.most_used_bike' do
+      station = create(:station_1)
+      create(:trip, start_station_id: station.id, bike_id: 2)
+      create(:trip, start_station_id: station.id, bike_id: 2)
+      create(:trip, start_station_id: station.id, bike_id: 5)
+      create(:trip, start_station_id: station.id, bike_id: 1)
+      create(:trip, start_station_id: station.id, bike_id: 3)    
+
+      expect(station.most_used_bike).to eq(2)
+    end
+  end
 end

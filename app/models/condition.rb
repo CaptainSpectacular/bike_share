@@ -124,5 +124,4 @@ class Condition < ApplicationRecord
     16..19,
     20..23]
   end
-
 end
