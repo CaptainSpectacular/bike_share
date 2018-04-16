@@ -9,15 +9,39 @@
       <th>Dock Count</th>
       <th>City</th>
       <th>Installation Date</th>
+      <th># Started Rides</th>
+      <th># Ended Rides</th>
     </tr>
     <tr>
       <td><%= @station.id %></td>
       <td><%= @station.dock_count %></td>
       <td><%= @station.city %></td>
       <td><%= @station.installation_date %></td>
+      <td><%= @station.started_rides %></td>
+      <td><%= @station.ended_rides %></td>
     <% if current_admin %>
       <td><%= link_to "Edit", edit_admin_station_path(@station) %></td>
       <td><%= link_to "Delete", admin_station_path(@station), method: :delete %></td>
     <% end %>
   </table>
+
+  <div>
+    Most Frequent Origin: <%= @station.frequent_origin.name unless @station.frequent_origin.nil? %>
+  </div>
+
+  <div>
+    Most Frequent Destination: <%= @station.frequent_destination.name unless @station.frequent_destination.nil? %>
+  </div>
+
+  <div>
+    Date With Most Trips Started: <%= @station.most_trips_started %>
+  </div>
+
+  <div>
+    Most Originating Zip Code: <%= @station.most_used_zip %>
+  </div>
+
+  <div>
+    Most Used Bike: <%= @station.most_used_bike %>
+  </div>
 </html>
