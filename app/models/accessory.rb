@@ -6,6 +6,14 @@ class Accessory < ApplicationRecord
   has_many :order_accessories
   has_many :orders, through: :order_accessories
 
+  def self.location(accessories_params)
+    if accessories_params[:category]
+      accessories = Accessory.where(category_id: accessories_params[:category])
+    else
+      @accessories = Accessory.all
+    end
+  end
+
   def order_quantity(order)
     order_accessories.find_by(order: order.id).quantity
   end

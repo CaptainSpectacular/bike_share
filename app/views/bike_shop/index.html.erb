@@ -1,5 +1,18 @@
 <h1 class="centered-text">Welcome to the Store!</h1>
 <img src="https://images.duckduckgo.com/iu/?u=https%3A%2F%2Fs-media-cache-ak0.pinimg.com%2Foriginals%2F4b%2Fd4%2F35%2F4bd435bcee3eedf44563024ff5c8c2de.jpg&f=1" class="img-responsive" style="width:100%">
+<div class="accessory-box">
+  <table>
+    <h1 class="centered-text">Categories</h1>
+    <tr>
+      <th><%= link_to "All", bike_shop_path %></th>
+      <th><%= link_to "Clothing", "/bike-shop?category=1" %></th>
+      <th><%= link_to "Gear", "/bike-shop?category=2" %></th>
+      <th><%= link_to "Bikes", "/bike-shop?category=3" %></th>
+      <th><%= link_to "Tools", "/bike-shop?category=4" %></th>
+      <th><%= link_to "Miscellaneous", "/bike-shop?category=5"%></th>
+    </tr>
+  </table>
+</div>
 <div class="accessory-display">
   <% @accessories.each do |accessory| %>
   <div class="accessory-<%= accessory.id %> accessory-box">
