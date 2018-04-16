@@ -1,10 +1,15 @@
 <html class="home">
   <div class="hero-text accessory-box">
-    Title: <h1><%= @accessory.title %></h1>
-    Price: $<%= @accessory.price %>
-    Description <%= @accessory.description %>
-    Status <%= @accessory.status %>
+    Title: <h1><%= @accessory.title %></h1><br>
+    Price: $<%= @accessory.price %><br>
+    Description: <%= @accessory.description %><br>
+    Status: <%= @accessory.status %><br>
+    Category: <%= @accessory.category.title %>
     <img src="<%= @accessory.image %>">
+    <% if current_admin %>
+      <%= link_to "Edit", edit_admin_accessory_path(@accessory) %>
+      <%= link_to "Delete", admin_accessory_path(@accessory), method: "delete" %>
+    <% end %>
     <% if @accessory.status == "active" %>
       <%= button_to "Add to Cart", cart_path(accessory_id: @accessory.id, value: "add") %>
     <% else %>

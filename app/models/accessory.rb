@@ -3,6 +3,7 @@ class Accessory < ApplicationRecord
   validates_uniqueness_of :title
   validates_numericality_of :price, greater_than: 0
 
+  belongs_to :category
   has_many :order_accessories
   has_many :orders, through: :order_accessories
 

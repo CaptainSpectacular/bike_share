@@ -17,6 +17,9 @@
       <legend><span class="number">5</span><%= f.label :status %></legend>
       <%= f.text_field :status %><br>
 
+      <legend><span class="number">6</span><%= f.label :category_id %></legend>
+      <%= f.collection_select :category_id, Category.all, :id, :title %><br>
+
       <%= f.submit %>
     <% end %>
   </div>

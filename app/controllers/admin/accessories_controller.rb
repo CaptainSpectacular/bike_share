@@ -34,7 +34,7 @@ module Admin
 
     private
     def accessory_params
-      params.require(:accessory).permit(:title, :description, :price, :image, :status)
+      params.require(:accessory).permit(:title, :description, :price, :image, :category_id, :status)
     end
 
   end

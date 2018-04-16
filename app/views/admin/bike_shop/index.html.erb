@@ -5,13 +5,14 @@
 <div class="accessory-display">
   <% @accessories.each do |accessory| %>
   <div class="accessory-box">
-    <%= accessory.title %>
-    <%= accessory.description %>
-    <%= accessory.price %>
-    <img src="<%= accessory.image %>">
+    Title: <%= accessory.title %><br>
+    Description: <%= accessory.description %><br>
+    Price: <%= accessory.price %><br>
+    Category: <%= accessory.category.title %>
+    <img src="<%= accessory.image %>"><br>
     <%= link_to "Edit", edit_admin_accessory_path(accessory) %>
     <%= link_to "Delete", admin_accessory_path(accessory), method: "delete" %>
-    <%= accessory.status %>
+    Status: <%= accessory.status %><br>
   </div>
   <% end %>
 </div>
