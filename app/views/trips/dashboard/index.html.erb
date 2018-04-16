@@ -18,12 +18,24 @@
   <%= "Most Popular Ending Station: #{@popular_ending_station}" %><br>
 
   <%= "Most Popular Bike: #{@popular_bike[0]} with #{@popular_bike[1]} rides" %><br>
-  <%= "Least Popular Bike: #{@unpopular_bike[0]} with #{@unpopular_bike[1]} rides" %><br>
+  <%= "Least Popular Bike: #{@unpopular_bike[0]} with #{@unpopular_bike[1]} rides" %>
+  <br>
+  <br>
 
-  Subscribers: <%= @subscriber_breakdown %><br>
-  Customers: <%= @customer_breakdown %> <br>
+  <strong>Subscribers:</strong><br>
+  Number of Subscribers: <%= @subscriber_breakdown[0] %><br>
+  Percentage of Subscribers: <%= @subscriber_breakdown[1].to_i %>%<br><br>
 
-  Busiest Date: <%= @busy_date %><br>
-  Least Busy Day: <%= @dead_date %><br>
+  <strong>Customers:</strong><br>
+  Number of Customers: <%= @customer_breakdown[0]%><br>
+  Percentage of Customers: <%= @customer_breakdown[1].to_i %>%<br><br>
+
+  <strong>Busiest Date:</strong><br>
+    Date: <%= @busy_date[0] %><br>
+    Number of Rides: <%= @busy_date[1].to_i %><br><br>
+
+  <strong>Least Busy Day:</strong><br>
+   Date: <%= @dead_date[0] %><br>
+   Number of Rides: <%= @dead_date[1].to_i %><br><br>
 </div>
 </html>
