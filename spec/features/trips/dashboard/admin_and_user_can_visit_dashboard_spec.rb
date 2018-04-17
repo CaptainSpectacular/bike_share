@@ -101,8 +101,8 @@ describe 'an admin/registered user' do
 
       visit trips_dashboard_path
 
-      expect(page).to have_content("Busiest Date: Date: 2018-04-16 Number of Rides: 3")
-      expect(page).to have_content("Least Busy Day: Date: 2018-04-16 Number of Rides: 3")
+      expect(page).to have_content("Number of Rides: 3")
+      expect(page).to have_content("Number of Rides: 3")
     end
   end
 end
