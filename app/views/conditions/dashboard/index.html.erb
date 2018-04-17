@@ -7,23 +7,49 @@
 
   <h3> Trips by Temp </h3>
   <div>
-    <%= @presenter.trip_temp_breakdown %>
+    <% @presenter.trip_temp_breakdown.each do |trip| %>
+      <strong><%= trip[0] %> Degrees</strong><br>
+      Fewest Trips: <%= trip[1] %><br>
+      Most Trips: <%= trip[2] %><br>
+      Average Trips: <%= trip[3] %><br>
+      <br>
+    <% end %>
   </div>
 
   <h3> Trips by Precipitation </h3>
   <div>
-    <%= @presenter.trip_pre_breakdown %>
+    <% @presenter.trip_pre_breakdown.each do |trip| %>
+     <strong><%= trip[0] %> Inches</strong><br>
+      Fewest Trips: <%= trip[1] %><br>
+      Most Trips: <%= trip[2] %><br>
+      Average Trips: <%= trip[3] %><br>
+      <br>
+    <% end %>
   <div>
 
   <h3> Trips by Windspeed </h3>
   <div>
-    <%= @presenter.trip_wind_breakdown %>
+    <% @presenter.trip_wind_breakdown.each do |trip| %>
+     <strong><%= trip[0] %> MPH</strong><br>
+      Fewest Trips: <%= trip[1] %><br>
+      Most Trips: <%= trip[2] %><br>
+      Average Trips: <%= trip[3] %><br>
+      <br>
+    <% end %>
   <div>
 
   <h3> Trips by Visibility </h3>
   <div>
-    <%= @presenter.trip_visible_breakdown %>
+    <% @presenter.trip_visible_breakdown.each do |trip| %>
+      <strong><%= trip[0] %> Miles</strong><br>
+      Fewest Trips: <%= trip[1] %><br>
+      Most Trips: <%= trip[2] %><br>
+      Average Trips: <%= trip[3] %><br>
+      <br>
+    <% end %>
   </div>
+  <br>
+  <br>
 </div>
 
 </html>

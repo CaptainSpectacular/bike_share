@@ -46,13 +46,13 @@ RSpec.describe Condition, type: :model do
       trip_4      = create(:trip, condition: condition_3)
       trip_5      = create(:trip, condition: condition_5)
 
-      expected = [[0, 0, 0],
-                  [1, 3, 2.0],
-                  [0, 0, 0],
-                  [0, 0, 0],
-                  [0, 0, 0],
-                  [1, 1, 1],
-                  [0, 0, 0]]
+      expected = [['40 - 49', 0, 0, 0],
+                  ['50 - 59', 1, 3, 2.0],
+                  ['60 - 69', 0, 0, 0],
+                  ['70 - 79', 0, 0, 0],
+                  ['80 - 89', 0, 0, 0],
+                  ['90 - 99', 1, 1, 1],
+                  ['100 - 110', 0, 0, 0]]
 
       expect(Condition.trips_temp_breakdown).to eq(expected)
     end
@@ -68,13 +68,12 @@ RSpec.describe Condition, type: :model do
       trip_3      = create(:trip, condition: condition_3)
       trip_4      = create(:trip, condition: condition_3)
       trip_5      = create(:trip, condition: condition_5)
-      expected = [[1, 3, 2],
-                  [1, 1, 1],
-                  [0, 0, 0],
-                  [0, 0, 0],
-                  [0, 0, 0],
-                  [0, 0, 0],
-                  [0, 0, 0]]
+      expected = [['0 - 0.49', 1, 3, 2],
+                  ['0.5 - 0.99', 1, 1, 1],
+                  ['1 - 1.49', 0, 0, 0],
+                  ['1.5 - 1.99', 0, 0, 0],
+                  ['2 - 2.49', 0, 0, 0],
+                  ['2.5 - 3', 0, 0, 0]]
 
       expect(Condition.trips_precipitation_breakdown).to eq(expected)
     end
@@ -91,12 +90,12 @@ RSpec.describe Condition, type: :model do
       trip_4      = create(:trip, condition: condition_4)
       trip_5      = create(:trip, condition: condition_5)
                   
-      expected = [[1, 1, 1.0],
-                  [0, 0, 0], 
-                  [0, 0, 0], 
-                  [1, 2, 1.5], 
-                  [0, 0, 0], 
-                  [0, 0, 0]]
+      expected = [['0 - 3', 1, 1, 1.0],
+                  ['4 - 7', 0, 0, 0], 
+                  ['8 - 11', 0, 0, 0], 
+                  ['12 - 15', 1, 2, 1.5], 
+                  ['16 - 19', 0, 0, 0], 
+                  ['20 - 23', 0, 0, 0]]
 
       expect(Condition.trips_windspeed_breakdown).to eq(expected)
     end
@@ -113,11 +112,11 @@ RSpec.describe Condition, type: :model do
       trip_4      = create(:trip, condition: condition_4)
       trip_5      = create(:trip, condition: condition_5)
       
-      expected = [[0, 0, 0],
-                  [0, 0, 0],
-                  [1, 2, 1.5],
-                  [0, 0, 0],
-                  [1, 1, 1]]
+      expected = [['4 - 7', 0, 0, 0],
+                  ['8 - 11', 0, 0, 0],
+                  ['12 - 15', 1, 2, 1.5],
+                  ['16 - 19', 0, 0, 0],
+                  ['20 - 23', 1, 1, 1]]
 
       expect(Condition.trips_visibility_breakdown).to eq(expected)
     end

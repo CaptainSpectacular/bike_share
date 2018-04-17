@@ -47,7 +47,7 @@ class Condition < ApplicationRecord
       trips = trips_with_temp(range)
       avg = calc_avg(trips)
 
-      return_values(avg, trips)
+      return_values(range, avg, trips)
     end
   end
 
@@ -56,7 +56,7 @@ class Condition < ApplicationRecord
       trips = trips_with_pre(range)
       avg = calc_avg(trips)
 
-      return_values(avg, trips)
+      return_values(range, avg, trips)
     end
   end
 
@@ -65,7 +65,7 @@ class Condition < ApplicationRecord
       trips = trips_with_visibility(range)
       avg = calc_avg(trips)
 
-      return_values(avg, trips)
+      return_values(range, avg, trips)
     end
   end
 
@@ -74,7 +74,7 @@ class Condition < ApplicationRecord
       trips = trips_with_wind(range)
       avg = calc_avg(trips)
 
-      return_values(avg, trips)
+      return_values(range, avg, trips)
     end
   end
 
@@ -84,8 +84,8 @@ class Condition < ApplicationRecord
     (trips.sum.to_f) / (trips.size).round(2)
   end
 
-  def self.return_values(avg, trips)
-    avg.nan? ? [0, 0, 0] : [trips.min, trips.max, avg]
+  def self.return_values(range, avg, trips)
+    avg.nan? ? ["#{range.first} - #{range.last}", 0, 0, 0] : ["#{range.first} - #{range.last}", trips.min, trips.max, avg]
   end
 
   def self.temp_ranges
@@ -99,19 +99,18 @@ class Condition < ApplicationRecord
   end
 
   def self.pre_ranges
-    [0..0.5,
+    [0..0.49,
      0.5..0.99,
      1..1.49,
      1.5..1.99,
      2..2.49,
-     2.5..2.99,
-     3..2.49]
+     2.5..3]
   end
 
   def self.wind_ranges
     [0..3,
      4..7,
-     7..11,
+     8..11,
      12..15,
      16..19,
      20..23]

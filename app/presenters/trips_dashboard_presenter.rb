@@ -20,9 +20,9 @@ class TripsDashboardPresenter
     Trip.max_duration
   end
 
-  def trips_by_month
-    Trip.beautify_group_by_month
-  end
+  # def trips_by_month
+  #   Trip.beautify_group_by_month
+  # end
 
   def popular_starting_station
     Trip.popular_starting_station
@@ -54,5 +54,11 @@ class TripsDashboardPresenter
 
   def dead_date
     Trip.dead_date
+  end
+
+  def group_month
+    Trip.group_by_month.map do |month, rides|
+      [month.strftime('%B - %Y'), rides]
+    end
   end
 end

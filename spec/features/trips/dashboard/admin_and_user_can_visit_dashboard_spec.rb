@@ -50,7 +50,7 @@ describe 'an admin/registered user' do
 
       visit trips_dashboard_path
 
-      expect(page).to have_content('2012-04: 2')
+      expect(page).to have_content('April - 2012: 2')
     end
 
     it 'see most and least popular station' do
@@ -101,8 +101,10 @@ describe 'an admin/registered user' do
 
       visit trips_dashboard_path
 
-      expect(page).to have_content("Number of Rides: 3")
-      expect(page).to have_content("Number of Rides: 3")
+      expect(page).to have_content("Busiest Date")
+      expect(page).to have_content("Least Busy Day")
+      expect(page).to have_content('Date:', count: 3)
+      expect(page).to have_content('Number of Rides:', count: 2)
     end
   end
 end
