@@ -3,39 +3,39 @@
 <div class="centered-text">
     <h1>Conditions</h1>
   <%= link_to "<< Back to Learning Dashboard", learn_dashboard_path %><br>
-  Best Weather: <%= @best_weather %><br>
-  Worst Weather: <%= @worst_weather %><br>
-  Average Duration: <%= @avg_duration %><br>
-  Longest Ride: <%= @min_duration %><br>
-  Shortest Ride: <%= @max_duration %><br>
+  Best Weather: <%= @presenter.best_weather %><br>
+  Worst Weather: <%= @presenter.worst_weather %><br>
+  Average Duration: <%= @presenter.avg_duration %><br>
+  Longest Ride: <%= @presenter.min_duration %><br>
+  Shortest Ride: <%= @presenter.max_duration %><br>
 
   Trips by Month:
-  <% @trips_by_month.each do |month, trip_count| %>
+  <% @presenter.trips_by_month.each do |month, trip_count| %>
     <%= "#{month}: #{trip_count}" %>
   <% end %><br>
 
-  <%= "Most Popular Starting Station: #{@popular_starting_station}" %><br>
-  <%= "Most Popular Ending Station: #{@popular_ending_station}" %><br>
+  <%= "Most Popular Starting Station: #{@presenter.popular_starting_station}" %><br>
+  <%= "Most Popular Ending Station: #{@presenter.popular_ending_station}" %><br>
 
-  <%= "Most Popular Bike: #{@popular_bike[0]} with #{@popular_bike[1]} rides" %><br>
-  <%= "Least Popular Bike: #{@unpopular_bike[0]} with #{@unpopular_bike[1]} rides" %>
+  <%= "Most Popular Bike: #{@presenter.popular_bike[0]} with #{@presenter.popular_bike[1]} rides" %><br>
+  <%= "Least Popular Bike: #{@presenter.unpopular_bike[0]} with #{@presenter.unpopular_bike[1]} rides" %>
   <br>
   <br>
 
   <strong>Subscribers:</strong><br>
-  Number of Subscribers: <%= @subscriber_breakdown[0] %><br>
-  Percentage of Subscribers: <%= @subscriber_breakdown[1].to_i %>%<br><br>
+  Number of Subscribers: <%= @presenter.subscriber_breakdown[0] %><br>
+  Percentage of Subscribers: <%= @presenter.subscriber_breakdown[1].to_i %>%<br><br>
 
   <strong>Customers:</strong><br>
-  Number of Customers: <%= @customer_breakdown[0]%><br>
-  Percentage of Customers: <%= @customer_breakdown[1].to_i %>%<br><br>
+  Number of Customers: <%= @presenter.customer_breakdown[0]%><br>
+  Percentage of Customers: <%= @presenter.customer_breakdown[1].to_i %>%<br><br>
 
   <strong>Busiest Date:</strong><br>
-    Date: <%= @busy_date[0] %><br>
-    Number of Rides: <%= @busy_date[1].to_i %><br><br>
+    Date: <%= @presenter.busy_date[0] %><br>
+    Number of Rides: <%= @presenter.busy_date[1].to_i %><br><br>
 
   <strong>Least Busy Day:</strong><br>
-   Date: <%= @dead_date[0] %><br>
-   Number of Rides: <%= @dead_date[1].to_i %><br><br>
+   Date: <%= @presenter.dead_date[0] %><br>
+   Number of Rides: <%= @presenter.dead_date[1].to_i %><br><br>
 </div>
 </html>
