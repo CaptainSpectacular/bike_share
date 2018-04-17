@@ -1,6 +1,7 @@
 <html class="login">
 <div class="hero-text">
   <h1 class="centered-text">Hello, <%= @user.username %>!</h1>
+  <%= link_to "Edit profile", edit_user_path(current_user) %><br>
   Previous Orders:<br>
   <% if !@user.orders.nil? %>
     <% @user.orders.each do |order| %>
