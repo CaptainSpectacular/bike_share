@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get    '/conditions-dashboard', to: 'conditions/dashboard#index'
   get    '/trips-dashboard',      to: 'trips/dashboard#index'
   get    '/stations-dashboard',   to: 'stations/dashboard#index'
-  
+
   resources :stations
   resources :users
   resources :orders
