@@ -112,26 +112,26 @@ RSpec.describe Station, type: :model do
       station1 = create(:station_1)
       station2 = create(:station_2)
       station3 = create(:station_1)
-      create(:trip, start_station_id: station1.id, end_station_id: station2.id)
-      create(:trip, start_station_id: station1.id, end_station_id: station2.id)
-      create(:trip, start_station_id: station1.id, end_station_id: station2.id)
-      create(:trip, start_station_id: station1.id, end_station_id: station3.id)
-      create(:trip, start_station_id: station1.id, end_station_id: station3.id)
+      create(:trip, start_station_name: station1.name, start_station_id: station1.id, end_station_id: station2.id, end_station_name: station2.name)
+      create(:trip, start_station_name: station1.name, start_station_id: station1.id, end_station_id: station2.id, end_station_name: station2.name)
+      create(:trip, start_station_name: station1.name, start_station_id: station1.id, end_station_id: station2.id, end_station_name: station2.name)
+      create(:trip, start_station_name: station1.name, start_station_id: station1.id, end_station_id: station3.id, end_station_name: station3.name)
+      create(:trip, start_station_name: station1.name, start_station_id: station1.id, end_station_id: station3.id, end_station_name: station3.name)
 
-      expect(station1.frequent_destination).to eq(station2)
+      expect(station1.frequent_destination).to eq(station2.name)
     end
 
     it '.frequent_origin' do
       station1 = create(:station_1)
       station2 = create(:station_2)
       station3 = create(:station_1)
-      create(:trip, start_station_id: station1.id, end_station_id: station2.id)
-      create(:trip, start_station_id: station1.id, end_station_id: station2.id)
-      create(:trip, start_station_id: station1.id, end_station_id: station2.id)
-      create(:trip, start_station_id: station3.id, end_station_id: station2.id)
-      create(:trip, start_station_id: station3.id, end_station_id: station2.id)
+      create(:trip, start_station_name: station1.name, start_station_id: station1.id, end_station_id: station2.id, end_station_name: station2.name)
+      create(:trip, start_station_name: station1.name, start_station_id: station1.id, end_station_id: station2.id, end_station_name: station2.name)
+      create(:trip, start_station_name: station1.name, start_station_id: station1.id, end_station_id: station2.id, end_station_name: station2.name)
+      create(:trip, start_station_name: station3.name, start_station_id: station3.id, end_station_id: station2.id, end_station_name: station2.name)
+      create(:trip, start_station_name: station3.name, start_station_id: station3.id, end_station_id: station2.id, end_station_name: station2.name)
 
-      expect(station2.frequent_origin).to eq(station1)
+      expect(station2.frequent_origin).to eq(station1.name)
     end
 
     it '.most_trips_started' do

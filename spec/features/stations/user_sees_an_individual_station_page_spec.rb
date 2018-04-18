@@ -57,7 +57,7 @@ describe 'user visits a stations show page' do
 
     visit station_path(station1)
 
-    expect(page).to have_content(station2.frequent_origin.name )
+    expect(page).to have_content(station2.frequent_origin )
   end
 
   scenario 'it shows the most frequent destination' do
@@ -73,7 +73,7 @@ describe 'user visits a stations show page' do
 
     visit station_path(station1)
 
-    expect(page).to have_content(station1.frequent_destination.name)
+    expect(page).to have_content(station1.frequent_destination)
   end
 
   scenario 'it shows the Date with the highest number of trips started at this station' do

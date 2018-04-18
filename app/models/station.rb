@@ -48,36 +48,42 @@ class Station < ApplicationRecord
   end
 
   def frequent_origin
-    destination = end_trips.group(:start_station_id)
-                           .count
-                           .max_by { |_k, v| v }
-
-    Station.find(destination[0]) unless destination.nil?
+    end_trips.select('start_station_name, COUNT(start_station_name) AS number')
+             .group(:start_station_name)
+             .order('number DESC')
+             .first
+             .try(:start_station_name)
   end
 
   def frequent_destination
-    destination = start_trips.group(:end_station_id)
-                             .count
-                             .max_by { |_k, v| v }
-
-    Station.find(destination[0]) unless destination.nil?
+    start_trips.select('end_station_name, COUNT(end_station_name) AS number')
+               .group(:end_station_name)
+               .order('number DESC')
+               .first
+               .try(:end_station_name)
   end
 
   def most_trips_started
-    start = start_trips.group(:start_date).count.max_by{ |_k, v| v }
-
-    start[0] unless start.nil?
+    start_trips.select('start_date, COUNT(start_date) AS number')
+               .group(:start_date)
+               .order('number DESC')
+               .first
+               .try(:start_date)
   end
 
   def most_used_zip
-    start = start_trips.group(:zip_code).count.max_by{ |_k, v| v }
-
-    start[0] unless start.nil?
+    start_trips.select('zip_code, COUNT(zip_code) AS number')
+               .group(:zip_code)
+               .order('number DESC')
+               .first
+               .try(:zip_code)
   end
 
   def most_used_bike
-    start = start_trips.group(:bike_id).count.max_by{ |_k, v| v }
-
-    start[0] unless start.nil?
+    start_trips.select('bike_id, COUNT(bike_id) AS number')
+               .group(:bike_id)
+               .order('number DESC')
+               .first
+               .try(:bike_id)
   end
 end

@@ -9,6 +9,10 @@
           <%= f.password_field :password %>
           <br>
 
+          <legend><span class="number">3</span><%= label_tag :confirm_password %></legend>
+          <%= f.password_field :confirm_password %>
+          <br>
+
           <%= f.submit "Sign Up" %>
         <% end %>
     </div>

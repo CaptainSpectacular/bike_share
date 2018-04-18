@@ -24,6 +24,7 @@ describe 'Authorization' do
       click_on "Create Account"    
       fill_in "user[username]", with: "Batman"
       fill_in "user[password]", with: "Robin"
+      fill_in "user[confirm_password]", with: "Robin"
       click_on "Sign Up"
 
       expect(current_path).to eq(dashboard_path)
@@ -31,6 +32,20 @@ describe 'Authorization' do
       expect(page).to have_content("Logged in as Batman")
       expect(page).to_not have_content("Login")
       expect(page).to have_content("Logout")
+    end
+
+    it 'passwords must match' do
+      visit root_path
+      click_on "Create Account"    
+      fill_in "user[username]", with: "Batman"
+      fill_in "user[password]", with: "Robin"
+      fill_in "user[confirm_password]", with: "Williams"
+      click_on "Sign Up"
+
+      expect(current_path).to eq(new_user_path)
+      expect(page).to have_content("Passwords do not match")
+      expect(page).to have_content("Login")
+      expect(page).to_not have_content("Logout")
     end
   end
 end
