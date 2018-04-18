@@ -17,9 +17,11 @@ class Trip < ApplicationRecord
 
   def self.best_weather
     joins(:condition)
+      .select('condition_id, count(condition_id) as number')
       .group(:condition_id)
-      .count(:condition_id)
-      .max_by { |_k, v| v }[0]
+      .order('number DESC')
+      .first
+      .condition_id
   end
 
   def self.worst_weather
@@ -64,7 +66,7 @@ class Trip < ApplicationRecord
       .order('number DESC')
       .first
       .try(:start_station_id)
-      Station.find(station).try(:name)
+      Station.find(station).try(:name) unless station.nil?
   end
 
   def self.popular_ending_station
@@ -74,7 +76,7 @@ class Trip < ApplicationRecord
       .order('number DESC')
       .first
       .try(:end_station_id)
-      Station.find(station).try(:name)
+      Station.find(station).try(:name) unless station.nil?
   end
 
   def self.popular_bike

@@ -12,8 +12,8 @@
   <%= "Most Popular Starting Station: #{@presenter.popular_starting_station}" %><br>
   <%= "Most Popular Ending Station: #{@presenter.popular_ending_station}" %><br>
 
-  <%= "Most Popular Bike: #{@presenter.popular_bike[0]} with #{@presenter.popular_bike[1]} rides" %><br>
-  <%= "Least Popular Bike: #{@presenter.unpopular_bike[0]} with #{@presenter.unpopular_bike[1]} rides" %>
+  <%= "Most Popular Bike: #{@presenter.popular_bike.bike_id} with #{@presenter.popular_bike.number} rides" %><br>
+  <%= "Least Popular Bike: #{@presenter.unpopular_bike.bike_id} with #{@presenter.unpopular_bike.number} rides" %>
   <br>
   <br>
 

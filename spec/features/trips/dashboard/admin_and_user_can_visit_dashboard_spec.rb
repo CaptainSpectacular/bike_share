@@ -77,8 +77,8 @@ describe 'an admin/registered user' do
 
       visit trips_dashboard_path
 
-      expect(page).to have_content("Most Popular Bike: #{Trip.popular_bike[0]} with #{Trip.popular_bike[1]} rides")
-      expect(page).to have_content("Least Popular Bike: #{Trip.unpopular_bike[0]} with #{Trip.unpopular_bike[1]} rides")
+      expect(page).to have_content("Most Popular Bike: #{Trip.popular_bike.bike_id} with #{Trip.popular_bike.number} rides")
+      expect(page).to have_content("Least Popular Bike: #{Trip.unpopular_bike.bike_id} with #{Trip.unpopular_bike.number} rides")
     end
 
     it 'see the subscription breakdown' do
