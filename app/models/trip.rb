@@ -17,16 +17,20 @@ class Trip < ApplicationRecord
 
   def self.best_weather
     joins(:condition)
+      .select('condition_id, count(condition_id) as number')
       .group(:condition_id)
-      .count(:condition_id)
-      .max_by { |_k, v| v }[0]
+      .order('number DESC')
+      .first
+      .condition_id
   end
 
   def self.worst_weather
     joins(:condition)
+      .select('condition_id, count(condition_id) as number')
       .group(:condition_id)
-      .count(:condition_id)
-      .min_by { |_k, v| v }[0]
+      .order('number')
+      .first
+      .condition_id
   end
 
   def self.average_duration
@@ -56,34 +60,37 @@ class Trip < ApplicationRecord
   end
 
   def self.popular_starting_station
-    station_id = joins(:start_station)
-                   .group(:start_station_id)
-                   .count
-                   .max_by { |_k, v| v }
-    Station.find(station_id[0]).name unless station_id.nil?
+    station = joins(:start_station)
+      .select('trips.start_station_id, count(trips.start_station_id) as number')
+      .group('trips.start_station_id')
+      .order('number DESC')
+      .first
+      .try(:start_station_id)
+      Station.find(station).try(:name) unless station.nil?
   end
 
   def self.popular_ending_station
-    station_id = joins(:end_station)
-    .group(:end_station_id)
-    .count
-    .max_by { |_k, v| v }
-    Station.find(station_id[0]).name unless station_id.nil?
-  end
-
-  def self.bike_use
-    group(:bike_id)
-      .count
+    station = joins(:end_station)
+      .select('trips.end_station_id, count(trips.end_station_id) as number')
+      .group('trips.end_station_id')
+      .order('number DESC')
+      .first
+      .try(:end_station_id)
+      Station.find(station).try(:name) unless station.nil?
   end
 
   def self.popular_bike
-    bikes = bike_use
-    bikes.max_by { |_k, v| v } unless bikes.nil?
+    select('bike_id, count(bike_id) as number')
+      .group(:bike_id)
+      .order('number DESC')
+      .first
   end
 
   def self.unpopular_bike
-    bikes = bike_use
-    bikes.min_by { |_k, v| v } unless bikes.nil?
+    select('bike_id, count(bike_id) as number')
+      .group(:bike_id)
+      .order('number')
+      .first
   end
 
   def self.group_subscriptions
@@ -95,15 +102,17 @@ class Trip < ApplicationRecord
       ((group_subscriptions[key].to_f / group_subscriptions.values.sum) * 100).round(2)]
   end
 
-  def self.group_date
-    group(:start_date).count
-  end
-
   def self.busy_date
-    group_date.max_by { |_k, v| v }
+    select('start_date, count(start_date) as number')
+      .group(:start_date)
+      .order('number DESC')
+      .first
   end
 
   def self.dead_date
-    group_date.min_by { |_k, v| v }
+    select('start_date, count(start_date) as number')
+      .group(:start_date)
+      .order('number')
+      .first
   end
 end

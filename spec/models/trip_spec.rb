@@ -101,11 +101,11 @@ RSpec.describe Trip, type: :model do
     it '.popular_starting_station' do
       station1 = create(:station_1)
       station2 = create(:station_2)
-      create(:trip, start_station: station1)
-      create(:trip, start_station: station1)
-      create(:trip, start_station: station1)
-      create(:trip, start_station: station2)
-      create(:trip, start_station: station2)
+      create(:trip, start_station_name: station1.name, start_station_id: station1.id)
+      create(:trip, start_station_name: station1.name, start_station_id: station1.id)
+      create(:trip, start_station_name: station1.name, start_station_id: station1.id)
+      create(:trip, start_station_name: station2.name, start_station_id: station2.id)
+      create(:trip, start_station_name: station2.name, start_station_id: station2.id)
 
       expect(Trip.popular_starting_station).to eq(station1.name)
     end
@@ -113,25 +113,15 @@ RSpec.describe Trip, type: :model do
     it '.popular_ending_station' do
       station1 = create(:station_1)
       station2 = create(:station_2)
-      create(:trip, end_station: station1)
-      create(:trip, end_station: station1)
-      create(:trip, end_station: station1)
-      create(:trip, end_station: station2)
-      create(:trip, end_station: station2)
+      station1 = create(:station_1)
+      station2 = create(:station_2)
+      create(:trip, end_station_name: station1.name, end_station_id: station1.id)
+      create(:trip, end_station_name: station1.name, end_station_id: station1.id)
+      create(:trip, end_station_name: station1.name, end_station_id: station1.id)
+      create(:trip, end_station_name: station2.name, end_station_id: station2.id)
+      create(:trip, end_station_name: station2.name, end_station_id: station2.id)
 
       expect(Trip.popular_ending_station).to eq(station1.name)
-    end
-
-    it '.bike_use' do 
-      create(:trip, bike_id: 1)
-      create(:trip, bike_id: 1)
-      create(:trip, bike_id: 1)
-      create(:trip, bike_id: 2)
-      create(:trip, bike_id: 2)
-
-      expected = { 1 => 3, 2 => 2 }
-
-      expect(Trip.bike_use).to eq(expected)
     end
 
     it '.popular_bike' do
@@ -141,7 +131,8 @@ RSpec.describe Trip, type: :model do
       create(:trip, bike_id: 2)
       create(:trip, bike_id: 2)
 
-      expect(Trip.popular_bike).to eq([1, 3])
+      expect(Trip.popular_bike.bike_id).to eq(1)
+      expect(Trip.popular_bike.number).to eq(3)
     end
 
     it '.unpopular_bike' do
@@ -151,7 +142,8 @@ RSpec.describe Trip, type: :model do
       create(:trip, bike_id: 2)
       create(:trip, bike_id: 2)
 
-      expect(Trip.unpopular_bike).to eq([2, 2])
+      expect(Trip.unpopular_bike.bike_id).to eq(2)
+      expect(Trip.unpopular_bike.number).to eq(2)
     end
 
     it '.group_subscriptions' do
@@ -177,21 +169,6 @@ RSpec.describe Trip, type: :model do
       expect(Trip.subscribtion_breakdown('Subscriber')).to eq([2, 40])
     end
 
-    it '.group_date' do
-      time1 = Time.now.strftime('%a, %d %b %Y').to_date
-      time2 = (Time.now + 200000).strftime('%a, %d %b %Y').to_date
-
-      create(:trip, start_date: time1)
-      create(:trip, start_date: time1)
-      create(:trip, start_date: time1)
-      create(:trip, start_date: time2)
-      create(:trip, start_date: time2)
-
-      expected = { time1 => 3, time2 => 2 }
-
-      expect(Trip.group_date).to eq(expected)
-    end
-
     it '.busy_date' do
       time1 = Time.now.strftime('%a, %d %b %Y').to_date
       time2 = (Time.now + 200000).strftime('%a, %d %b %Y').to_date
@@ -202,7 +179,8 @@ RSpec.describe Trip, type: :model do
       create(:trip, start_date: time2)
       create(:trip, start_date: time2)
 
-      expect(Trip.busy_date).to eq([time1, 3])
+      expect(Trip.busy_date.start_date).to eq(time1)
+      expect(Trip.busy_date.number).to eq(3)
     end
 
     it '.dead_date' do
@@ -215,7 +193,8 @@ RSpec.describe Trip, type: :model do
       create(:trip, start_date: time2)
       create(:trip, start_date: time2)
 
-      expect(Trip.dead_date).to eq([time2, 2])
+      expect(Trip.dead_date.start_date).to eq(time2)
+      expect(Trip.dead_date.number).to eq(2)
     end
   end
 end
