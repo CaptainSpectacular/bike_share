@@ -19,10 +19,10 @@ class Condition < ApplicationRecord
 
   def self.trips_with_pre(range)
     joins(:trips)
-    .where(precipitation: range)
-    .group(:condition_id)
-    .count(:condition_id)
-    .values
+      .where(precipitation: range)
+      .group(:condition_id)
+      .count(:condition_id)
+      .values
   end
 
   def self.trips_with_wind(range)
@@ -30,16 +30,15 @@ class Condition < ApplicationRecord
       .where(average_windspeed: range)
       .group(:condition_id)
       .count(:condition_id)
-      .values  
+      .values
   end
-
 
   def self.trips_with_visibility(range)
     joins(:trips)
       .where(average_visibility: range)
       .group(:condition_id)
       .count(:condition_id)
-      .values  
+      .values
   end
 
   def self.trips_temp_breakdown
