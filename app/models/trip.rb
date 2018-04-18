@@ -60,23 +60,19 @@ class Trip < ApplicationRecord
   end
 
   def self.popular_starting_station
-    station = joins(:start_station)
-      .select('trips.start_station_id, count(trips.start_station_id) as number')
+      joins(:start_station).select(:start_station_name).where(id: (select('trips.start_station_id, count(trips.start_station_id) as number')
       .group('trips.start_station_id')
       .order('number DESC')
       .first
-      .try(:start_station_id)
-      Station.find(station).try(:name) unless station.nil?
+      .try(:start_station_id))).take.try(:start_station_name)
   end
 
   def self.popular_ending_station
-    station = joins(:end_station)
-      .select('trips.end_station_id, count(trips.end_station_id) as number')
-      .group('trips.end_station_id')
-      .order('number DESC')
-      .first
-      .try(:end_station_id)
-      Station.find(station).try(:name) unless station.nil?
+      joins(:end_station).select(:end_station_name).where(id: (select('trips.end_station_id, count(trips.end_station_id) as number')
+     .group('trips.end_station_id')
+     .order('number DESC')
+     .first
+     .try(:end_station_id))).take.try(:end_station_name)
   end
 
   def self.popular_bike

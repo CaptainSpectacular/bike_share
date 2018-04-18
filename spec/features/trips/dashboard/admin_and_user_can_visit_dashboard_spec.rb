@@ -56,12 +56,13 @@ describe 'an admin/registered user' do
     it 'see most and least popular station' do
       station_1 = create(:station_1)
       station_2 = create(:station_2)
+
       condition  = create(:con2)
-      create(:trip, condition: condition, start_station: station_1, end_station: station_2)
-      create(:trip, condition: condition, start_station: station_1, end_station: station_2)
-      create(:trip, condition: condition, start_station: station_1, end_station: station_2)
-      create(:trip, condition: condition, start_station: station_1, end_station: station_2)
-      create(:trip, condition: condition, start_station: station_1, end_station: station_2)
+      create(:trip, condition: condition, start_station: station_1, start_station_name: 'Broadway', end_station: station_2, end_station_name: 'Station2')
+      create(:trip, condition: condition, start_station: station_1, start_station_name: 'Broadway', end_station: station_2, end_station_name: 'Station2')
+      create(:trip, condition: condition, start_station: station_1, start_station_name: 'Broadway', end_station: station_2, end_station_name: 'Station2')
+      create(:trip, condition: condition, start_station: station_1, start_station_name: 'Broadway', end_station: station_2, end_station_name: 'Station2')
+      create(:trip, condition: condition, start_station: station_1, start_station_name: 'Broadway', end_station: station_2, end_station_name: 'Station2')
 
       visit trips_dashboard_path
 
