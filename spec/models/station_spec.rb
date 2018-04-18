@@ -92,7 +92,7 @@ RSpec.describe Station, type: :model do
       create(:trip, start_station_id: station.id)
       create(:trip, start_station_id: station.id)
       create(:trip, start_station_id: station.id)
-  
+
       expect(station.ended_rides).to eq(5)
     end
 
@@ -140,7 +140,7 @@ RSpec.describe Station, type: :model do
       create(:trip, start_station_id: station.id, start_date: Date.today - 1000000)
       create(:trip, start_station_id: station.id, start_date: Date.today - 1000000)
       create(:trip, start_station_id: station.id, start_date: Date.today)
-      create(:trip, start_station_id: station.id, start_date: Date.today)  
+      create(:trip, start_station_id: station.id, start_date: Date.today)
 
       expect(station.most_trips_started).to eq(Date.today - 1000000)
     end
@@ -151,7 +151,7 @@ RSpec.describe Station, type: :model do
       create(:trip, start_station_id: station.id, zip_code: 80221)
       create(:trip, start_station_id: station.id, zip_code: 80221)
       create(:trip, start_station_id: station.id, zip_code: 76482)
-      create(:trip, start_station_id: station.id, zip_code: 89283)  
+      create(:trip, start_station_id: station.id, zip_code: 89283)
 
       expect(station.most_used_zip).to eq(80221)
     end
@@ -162,7 +162,7 @@ RSpec.describe Station, type: :model do
       create(:trip, start_station_id: station.id, bike_id: 2)
       create(:trip, start_station_id: station.id, bike_id: 5)
       create(:trip, start_station_id: station.id, bike_id: 1)
-      create(:trip, start_station_id: station.id, bike_id: 3)    
+      create(:trip, start_station_id: station.id, bike_id: 3)
 
       expect(station.most_used_bike).to eq(2)
     end
