@@ -30,13 +30,15 @@
 <div class="centered-text">
   <h3>Orders by status</h3>
 </div>
-  <div class="container station-display">
+
+  <div class="order-container">
   <table>
     <tr>
       <th><%= link_to 'Paid orders', admin_dashboard_path(:sort_status => 'Paid') %>: <%= @orders.count_by_status('Paid') %></th>
       <th><%= link_to 'In progress orders', admin_dashboard_path(:sort_status => 'Ordered') %>: <%= @orders.count_by_status('Ordered') %></th>
       <th><%= link_to 'Cancelled orders', admin_dashboard_path(:sort_status => 'Cancelled') %>: <%= @orders.count_by_status('Cancelled') %></th>
       <th><%= link_to 'Completed orders', admin_dashboard_path(:sort_status => 'Completed') %>: <%= @orders.count_by_status('Completed') %></th>
+    </tr>
   </table><br />
   <% if @sorted_orders %>
     <table>
@@ -55,6 +57,7 @@
   </table>
   <% end %>
 </div>
+
 <div class="centered-text">
   <h3>All Orders</h3>
 </div>

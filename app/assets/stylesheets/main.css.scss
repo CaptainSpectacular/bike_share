@@ -291,16 +291,32 @@ ul {
 .learn-background {
   background-image: url(https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pdgm.com%2Fgetmedia%2F49986e29-2fba-4629-8a09-591205b91ed4%2FLibrary_1400_800.jpg.aspx&f=1);
   background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 .trip-background {
   background-image: url(http://cdn.mntm.me/66/5c/73/Tip-Sheet-Road-Trips-665c733326544377a6335e75b5030d5c.jpg);
   background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 
-.container {
+.order-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   th, td {
     padding: 5px;
   }
+}
+
+.container {
+  
+    th, td {
+      padding: 5px;
+    }
 }
