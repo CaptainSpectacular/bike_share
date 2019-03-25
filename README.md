@@ -2,7 +2,7 @@
 
 Bike Share is a Ruby on Rails application that presents a sample of [real-world trip data](https://www.kaggle.com/benhamner/sf-bay-area-bike-share) from the San Francisco bike share system organized by stations, trips and weather conditions. Using this application, you can see analytics about popular stations, how weather correlates with trips, and even mock-purchase bike accessories.
 
-See it for yourself at [serene-taiga-63780.herokuapp.com](serene-taiga-63780.herokuapp.com)
+See it for yourself at [serene-taiga-63780.herokuapp.com](http://serene-taiga-63780.herokuapp.com)
 
 ## Setup
 
